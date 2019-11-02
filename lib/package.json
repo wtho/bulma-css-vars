@@ -1,0 +1,51 @@
+{
+  "name": "bulma-css-vars",
+  "version": "0.1.0",
+  "description": "Bulma.io with CSS variables",
+  "keywords": [
+    "Bulma",
+    "CSS Variables"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "/dist",
+    "../README.md"
+  ],
+  "bin": {
+    "bulma-css-vars": "./bin/bulma-css-vars.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run test && npm run build",
+    "test": "jest"
+  },
+  "author": "Thomas Wirth <thomas@wtho.de>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wtho/bulma-css-vars"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "dependencies": {
+    "color": "^3.1.2",
+    "mkdirp": "^0.5.1",
+    "sass": "^1.23.3"
+  },
+  "peerDependencies": {
+    "bulma": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/color": "^3.0.0",
+    "@types/jest": "^24.0.21",
+    "@types/mkdirp": "^0.5.2",
+    "@types/node": "^12.12.3",
+    "@types/sass": "^1.16.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  }
+}

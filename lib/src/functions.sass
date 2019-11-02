@@ -1,0 +1,136 @@
+@use 'sass:color'
+
+@function unwrap($color)
+  @if type-of($color) == string and str-index($color, "var(") == 1
+    @return str-slice($color, 5, -2)
+  @else
+    @return $color
+
+@function wrap($color)
+  @if type-of($color) == string and str-index($color, "--") == 1
+    @return var(#{$color})
+  @else 
+    @return $color
+
+@function darken($col, $perc)
+  @if type-of($col) == 'color'
+    @return color.adjust($col, $lightness: $perc * -1)
+  @else 
+    $color: unwrap($col)
+    $perccalc: #{$perc * 100}
+    $num: str-slice(quote($perccalc), 0, -2) // remove '%'
+    @return wrap(#{$color}--#{$num}--darken)
+
+@function lighten($col, $perc)
+  @if type-of($col) == 'color'
+    @return color.adjust($col, $lightness: $perc)
+  @else 
+    $color: unwrap($col)
+    $perccalc: #{$perc * 100}
+    $num: str-slice(quote($perccalc), 0, -2) // remove '%''
+    @return wrap(#{$color}--#{$num}--lighten)
+
+@function saturate($col, $perc)
+  @if type-of($col) == 'color'
+    @return color.adjust($col, $saturation: $perc)
+  @else 
+    $color: unwrap($col)
+    $perccalc: #{$perc * 100}
+    $num: str-slice(quote($perccalc), 0, -2) // remove '%''
+    @return wrap(#{$color}--#{$num}--saturate)
+
+@function desaturate($col, $perc)
+  @if type-of($col) == 'color'
+    @return color.adjust($col, $saturation: $perc * -1)
+  @else 
+    $color: unwrap($col)
+    $perccalc: #{$perc * 100}
+    $num: str-slice(quote($perccalc), 0, -2) // remove '%''
+    @return wrap(#{$color}--#{$num}--desaturate)
+
+@function rgba($col, $val)
+  @if type-of($col) == 'color'
+    @return color.change($col, $alpha: $val)
+  @else
+    $color: unwrap($col)
+    @if str-index($color, "--") == 1
+      @return wrap(#{$color}--#{$val * 100}--rgba)
+    @else
+      @return color.change($color, $alpha: $perc)
+
+@function adjust-hue($col, $deg)
+  @if type-of($col) == 'color'
+    @return color.adjust($col, $hue: $deg)
+  @else
+    $color: unwrap($col)
+    @return wrap(#{$color}--#{$deg}--adjusthue)
+
+@function findLightColor($col)
+  @if type-of($col) == 'color'
+    @return bulmaFindLightColor($col)
+  @else
+    $color: unwrap($col)
+    @return wrap(#{$color}--light-color)
+
+@function findDarkColor($col)
+  @if type-of($col) == 'color'
+    @return bulmaFindDarkColor($col)
+  @else
+    $color: unwrap($col)
+    @return wrap(#{$color}--dark-color)
+
+@function findColorInvert($col)
+  @if type-of($col) == 'color'
+    @return bulmaFindColorInvert($col)
+  @else
+    $color: unwrap($col)
+    @return wrap(#{$color}--color-invert)
+
+@function lightness($col)
+  @if type-of($col) == 'color'
+    @return color.lightness($col)
+  // this is called by message.sass with a possible variable (white)
+  // as the variable $white is usually bright, we return a high default value
+  @return 90%
+  
+
+// TODO: fix colorLuminance and lightness calls
+// outside functions (both in message.sass)!
+// ===================== ORIGINAL BULMA FUNCTIONS ========================
+
+@function bulmaColorLuminance($color)
+  $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color))
+  @each $name, $value in $color-rgb
+    $adjusted: 0
+    $value: $value / 255
+    @if $value < 0.03928
+      $value: $value / 12.92
+    @else
+      $value: ($value + .055) / 1.055
+      $value: $value * $value
+    $color-rgb: map-merge($color-rgb, ($name: $value))
+  @return (map-get($color-rgb, 'red') * .2126) + (map-get($color-rgb, 'green') * .7152) + (map-get($color-rgb, 'blue') * .0722)
+
+@function bulmaFindColorInvert($color)
+  @if (bulmaColorLuminance($color) > 0.55)
+    @return color.change(#000, $alpha: 0.7)
+  @else
+    @return #fff
+
+@function bulmaFindLightColor($color)
+  @if type-of($color) == 'color'
+    $l: 96%
+    @if lightness($color) > 96%
+      $l: lightness($color)
+    @return change-color($color, $lightness: $l)
+  @return $background
+
+@function bulmaFindDarkColor($color)
+  @if type-of($color) == 'color'
+    $base-l: 29%
+    $luminance: bulmaColorLuminance($color)
+    $luminance-delta: (0.53 - $luminance)
+    $target-l: round($base-l + ($luminance-delta * 53))
+    @return change-color($color, $lightness: max($base-l, $target-l))
+  @return $text-strong
+

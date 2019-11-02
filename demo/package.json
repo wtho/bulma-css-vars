@@ -1,0 +1,50 @@
+{
+  "name": "bulma-css-vars-demo",
+  "version": "1.0.0",
+  "description": "Demo of Bulma with CSS Variables",
+  "private": true,
+  "scripts": {
+    "dev": "node dev-server.js",
+    "update-colors": "bulma-css-vars",
+    "build": "webpack --config webpack.build.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ls": "ls"
+  },
+  "keywords": [
+    "Bulma",
+    "bulma-css-vars",
+    "CSS Variables"
+  ],
+  "author": "Thomas Wirth <thomas@wtho.de>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wtho/bulma-css-vars"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bulma": "^0.8.0",
+    "bulma-css-vars": "../lib",
+    "vanilla-picker": "^2.10.0"
+  },
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "eventsource-polyfill": "^0.9.6",
+    "file-loader": "^4.2.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-exclude-assets-plugin": "0.0.7",
+    "html-webpack-plugin": "^3.2.0",
+    "json-loader": "^0.5.7",
+    "mini-css-extract-plugin": "^0.8.0",
+    "sass": "^1.23.3",
+    "sass-loader": "^8.0.0",
+    "style-ext-html-webpack-plugin": "^4.1.2",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-merge": "^4.2.2"
+  }
+}

@@ -3,7 +3,7 @@
 Bulma CSS Vars extends [**Bulma**](https://github.com/jgthms/bulma) to use CSS variables, that can be set to arbitrary values at runtime on the website.
 
 [![version](https://img.shields.io/npm/v/bulma-css-vars.svg)](https://www.npmjs.org/package/bulma-css-vars)
-[![]](https://github.com/wtho/bulma-css-vars/workflows/ci/badge.svg)]
+[![](https://github.com/wtho/bulma-css-vars/workflows/ci/badge.svg)](https://github.com/wtho/bulma-css-vars/actions?query=workflow%3Aci)
 
 
 

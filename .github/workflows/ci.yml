@@ -13,6 +13,10 @@ jobs:
         with:
             node-version: 10.15.0
       - name: Install deps
-        run: npm ci
+        run: |
+          cd lib
+          npm ci
       - name: Run tests
-        run: npm test
+        run: |
+          cd lib
+          npm test

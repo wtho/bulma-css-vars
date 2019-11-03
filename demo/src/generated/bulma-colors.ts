@@ -91,11 +91,6 @@ export const bulmaCssVariablesDefs: ColorCallSet = {
         "composeArg": null
       },
       {
-        "fn": "lighten",
-        "fnArg": "4800",
-        "composeArg": null
-      },
-      {
         "fn": "rgba",
         "fnArg": "5",
         "composeArg": null
@@ -108,6 +103,11 @@ export const bulmaCssVariablesDefs: ColorCallSet = {
       {
         "fn": "rgba",
         "fnArg": "70",
+        "composeArg": null
+      },
+      {
+        "fn": "lighten",
+        "fnArg": "800",
         "composeArg": null
       },
       {
@@ -514,13 +514,13 @@ export const bulmaCssVariablesDefs: ColorCallSet = {
         "composeArg": null
       },
       {
-        "fn": "lighten",
-        "fnArg": "4800",
+        "fn": "darken",
+        "fnArg": "500",
         "composeArg": null
       },
       {
-        "fn": "darken",
-        "fnArg": "500",
+        "fn": "lighten",
+        "fnArg": "800",
         "composeArg": null
       },
       {
@@ -867,11 +867,6 @@ export const bulmaCssVariablesDefs: ColorCallSet = {
         "composeArg": null
       },
       {
-        "fn": "lighten",
-        "fnArg": "4800",
-        "composeArg": null
-      },
-      {
         "fn": "darken",
         "fnArg": "500",
         "composeArg": null
@@ -879,6 +874,11 @@ export const bulmaCssVariablesDefs: ColorCallSet = {
       {
         "fn": "rgba",
         "fnArg": "70",
+        "composeArg": null
+      },
+      {
+        "fn": "lighten",
+        "fnArg": "800",
         "composeArg": null
       },
       {
@@ -935,13 +935,13 @@ export const bulmaCssVariablesDefs: ColorCallSet = {
         "composeArg": null
       },
       {
-        "fn": "lighten",
-        "fnArg": "4800",
+        "fn": "darken",
+        "fnArg": "500",
         "composeArg": null
       },
       {
-        "fn": "darken",
-        "fnArg": "500",
+        "fn": "lighten",
+        "fnArg": "800",
         "composeArg": null
       },
       {

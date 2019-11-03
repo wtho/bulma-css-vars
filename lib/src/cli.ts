@@ -31,12 +31,18 @@ export async function runCli(cwd: string) {
     throw new Error('[Bulma CSS Vars] cannot create definitions, entry sass file does not exist in config')
   }
 
-  // outputFile
+  // js output file
   const jsOutputFile = getAbsoluteFileName(options.jsOutputFile, cwd)
+  // sass output file
   const sassOutputFile = getAbsoluteFileName(options.sassOutputFile, cwd)
+  // web with globals
+  const globalWebVar = options.globalWebVar
   // entry sass file
   const sassEntryFile = getAbsoluteFileName(options.sassEntryFile, cwd)
 
+  if (jsOutputFile.endsWith('ts') && globalWebVar) {
+    throw new Error('TypeScript output with direct web usage is not possible - file has to be processed anyway!')
+  }
   if (!(await exists(sassEntryFile))) {
     throw new Error(
       `[Bulma CSS Vars] cannot create definitions, entry sass file does not exist in file system at ${sassEntryFile}`
@@ -84,6 +90,7 @@ export async function runCli(cwd: string) {
   const sassVarsContent = updater.createWritableSassFile()
   // write sass vars output file
   await writeFile(sassOutputFile, sassVarsContent)
+  console.log(`Updated ${sassOutputFile}`)
   // write js output file
   let jsOutputContent: string
   if (jsOutputFile.endsWith('ts')) {
@@ -117,6 +124,13 @@ export const bulmaCssVariablesDefs: ColorCallSet = ${JSON.stringify(
       2
     )}
 `
+  } else if (globalWebVar) {
+    // write js file
+    jsOutputContent = `
+Object.defineProperty(window, 'bulmaCssVarsDef',
+  { enumerable: true, value: ${JSON.stringify(usedVars)} }
+)
+`
   } else {
     // write js file
     jsOutputContent = `
@@ -128,4 +142,5 @@ module.exports = ${JSON.stringify(usedVars, null, 2)}
       ? jsOutputFile
       : `${jsOutputFile}.js`
   await writeFile(fullJsOutputFile, jsOutputContent)
+  console.log(`Updated ${jsOutputFile}`)
 }

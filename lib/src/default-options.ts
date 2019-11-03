@@ -5,5 +5,6 @@ export const defaultOptions: BulmaCssVarsOptions = {
   jsOutputFile: './generated-bulma-css-vars.js',
   sassOutputFile: './generated-bulma-css-vars.sass',
   sassEntryFile: null,
-  colorDefs: {}
+  colorDefs: {},
+  globalWebVar: false
 }

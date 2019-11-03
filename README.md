@@ -12,7 +12,7 @@ Bulma CSS Vars extends [**Bulma**](https://github.com/jgthms/bulma) to use CSS v
 
 This is an extension and a kind of "sass-pre-post-processor" that tries to be as least intrusive as possible to Bulma, while making arbitrary color changes in the bulma color schemes automated, as easy as possible.
 
-There is quite some setup and configuration to be done, but once it is setup, it works like a charm. Read the sections after **Usage**, to learn why this setup is required.
+There is quite some setup and configuration to be done, but once it is setup, it works like a charm. Read the section [What is the difficulty](#what-is-the-difficulty-why-this-setup), to learn why this setup is required.
 
 ## Usage
 ```bash
@@ -42,16 +42,18 @@ module.exports = {
   sassOutputFile: './src/style/bulma-vars.sass',
   sassEntryFile: './src/style/main-sass-file.sass',
   colorDefs: appColors,
+  globalWebVar: false
 }
 ```
 You need to configure `bulma-css-vars` to tell it about your sass setup, especially your sass entry file, the variables you want to modify and where the generated bulma files should be placed.
 
-| Config key      |                                                              |
-| ---------------- |:--------------------------------------------------------------------------|
-| `sassEntryFile`  | Sass Entry File of you Application - relative path form config file       |
-| `jsOutputFile`   | full name of generated js file, can also be `*.ts`                        |
-| `sassOutputFile` | full name of generated sass file, should be included in your app styles   |
-| `colorDefs`      | color definitions, names have to match bulma color names                  |
+| Config key       |                                                                                                    |
+| ---------------- |:---------------------------------------------------------------------------------------------------|
+| `sassEntryFile`  | Sass Entry File of you Application - relative path form config file                                |
+| `jsOutputFile`   | full name of generated js file, can also be `<a-typescript-file>.ts`                               |
+| `sassOutputFile` | full name of generated sass file, should be included in your app styles                            |
+| `colorDefs`      | color definitions, names have to match bulma color names (see examples above)                      |
+| `globalWebVar`   | set to `true`, if you import your js files directly, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
 
 Some more files have to be setup.
 
@@ -65,7 +67,7 @@ Instead of using `bulma-cv-lib.sass`, you can also just use the bulma packages y
 ```json
 // package.json
   scripts: {
-    "update-colors": "bulma-css-vars",
+    "update-bulma-colors": "bulma-css-vars",
   }
 ```
 This script has to be run whenever you modify the colors in `bulma-css-vars.config.js` and it will update the two output files as well.
@@ -120,3 +122,31 @@ From the list of base variables and derived variables, this library then can cre
 The class doing this should also be included into your application. Whenever you want to change a bulma color variable, e. g. say `$blue`, the color updater knows which derived variables are required to be adjusted as well and will let you update all affected variables.
 
 This way you can keep using the full bulma color richness. Try out the demo and see how the font of the buttons changes on dark / bright colors!
+
+## Direct Web Setup
+If you do not use any bundler or web framework, you can also include bulma-css-vars directly. You will still require Node.js.
+
+```sass
+// app.sass
+@import './bulma-vars.sass'
+@import './node_modules/bulma-css-vars/bulma-cv-lib.sass'
+```
+
+Make sure you set `globalWebVars` to true in your `bulma-css-vars.config.js`. Then run `./node_modules/.bin/bulma-css-vars` and `sass app.sass > app.css`.
+
+In your html:
+```html
+<head>
+  <link res="stylesheet" src="./app.css">
+</head>
+<body>
+  <!-- ... -->
+  <script src="./node_modules/bulma-css-vars/dist/bulma-css-vars.web-bundle.js"></script><!-- loads window.BulmaColorUpdater -->
+  <script src="./bulma-colors.js"></script><!-- loads window.bulmaCssVarsDef with your variable definitions -->
+  <script>
+    const updater = new BulmaColorUpdater(bulmaCssVarsDef);
+    updater.updateVarsInDocument('black', '#553292');
+  </script>
+</body>
+```
+

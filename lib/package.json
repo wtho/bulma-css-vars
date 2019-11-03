@@ -1,6 +1,6 @@
 {
   "name": "bulma-css-vars",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bulma.io with CSS variables",
   "keywords": [
     "Bulma",
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepare": "npm run test && npm run build",
+    "prepare": "npm run test && npm run build && cp ../README.md .",
     "test": "jest"
   },
   "author": "Thomas Wirth <thomas@wtho.de>",

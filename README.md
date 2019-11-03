@@ -4,6 +4,7 @@ Bulma CSS Vars extends [**Bulma**](https://github.com/jgthms/bulma) to use CSS v
 
 [![version](https://img.shields.io/npm/v/bulma-css-vars.svg)](https://www.npmjs.org/package/bulma-css-vars)
 [![](https://github.com/wtho/bulma-css-vars/workflows/ci/badge.svg)](https://github.com/wtho/bulma-css-vars/actions?query=workflow%3Aci)
+[![](https://img.shields.io/badge/Demo-green)](https://wtho.github.io/bulma-css-vars)
 
 
 

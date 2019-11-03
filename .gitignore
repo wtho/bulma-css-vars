@@ -1,6 +1,9 @@
 # NPM
 dist/
 
+# project specifics
+lib/README.md
+
 # Logs
 logs
 *.log

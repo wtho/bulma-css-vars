@@ -11,7 +11,8 @@
   "types": "./dist/index.d.ts",
   "files": [
     "/dist",
-    "/bin"
+    "/bin",
+    "/*.sass"
   ],
   "bin": {
     "bulma-css-vars": "./bin/bulma-css-vars.js"

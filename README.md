@@ -53,7 +53,7 @@ You need to configure `bulma-css-vars` to tell it about your sass setup, especia
 | `jsOutputFile`   | full name of generated js file, can also be `<a-typescript-file>.ts`                               |
 | `sassOutputFile` | full name of generated sass file, should be included in your app styles                            |
 | `colorDefs`      | color definitions, names have to match bulma color names (see examples above)                      |
-| `globalWebVar`   | set to `true`, if you import your js files directly, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
+| `globalWebVar`   | if you import js files directly in the browser, you need `true`, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
 
 Some more files have to be setup.
 
@@ -70,7 +70,7 @@ Instead of using `bulma-cv-lib.sass`, you can also just use the bulma packages y
     "update-bulma-colors": "bulma-css-vars",
   }
 ```
-This script has to be run whenever you modify the colors in `bulma-css-vars.config.js` and it will update the two output files as well.
+The script `./node_modules/.bin/bulma-css-vars` has to be run whenever you modify the colors in `bulma-css-vars.config.js` and it will update the two output files as well.
 
 ```js
 // in-the-web-app.js
@@ -102,6 +102,7 @@ colorUpdater.updateVarsInDocument(colorName, value);
 Annoyingly, the color updater needs knowledge of the current variables, so `bulmaCssVariablesDefs` from the generated js file has to be included in your app. `colorName` has to match the name in the `bulma-css-vars.config.js`.
 
 ### Caveats
+* Requires Node.js and Dart Sass
 * The complexity of the setup
 * This solution does not provide a fallback, so browsers without CSS Variables support will not be able to handle the variable colors
 
@@ -140,9 +141,13 @@ In your html:
   <link res="stylesheet" src="./app.css">
 </head>
 <body>
-  <!-- ... -->
-  <script src="./node_modules/bulma-css-vars/dist/bulma-css-vars.web-bundle.js"></script><!-- loads window.BulmaColorUpdater -->
-  <script src="./bulma-colors.js"></script><!-- loads window.bulmaCssVarsDef with your variable definitions -->
+  <!-- [your webpage] -->
+  
+  <!-- loads window.BulmaColorUpdater -->
+  <script src="./node_modules/bulma-css-vars/dist/bulma-css-vars.web-bundle.js"></script>
+
+  <!-- loads window.bulmaCssVarsDef with your variable definitions -->
+  <script src="./bulma-colors.js"></script>
   <script>
     const updater = new BulmaColorUpdater(bulmaCssVarsDef);
     updater.updateVarsInDocument('black', '#553292');

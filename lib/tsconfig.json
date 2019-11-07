@@ -8,8 +8,9 @@
     "moduleResolution": "node",
     "target": "es2015",
     "noImplicitAny": true,
+    "lib": ["es2019", "dom"],
     "downlevelIteration": true
   },
   "include": ["./src/**/*"],
-  "exclude": ["node_modules", "dist", "./src/**/*.test.ts"]
+  "exclude": ["node_modules", "dist", "**/__mocks__/**/*", "./src/**/*.test.ts"]
 }

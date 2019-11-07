@@ -10,6 +10,8 @@ import {
   fileStartsWith,
   writeFile,
 } from './fs-helper'
+import { getCssFallbacks } from './css-post-processor'
+import { renderSass } from './render-sass'
 
 const configFileName = 'bulma-css-vars.config.js'
 
@@ -35,12 +37,14 @@ export async function runCli(cwd: string) {
   const jsOutputFile = getAbsoluteFileName(options.jsOutputFile, cwd)
   // sass output file
   const sassOutputFile = getAbsoluteFileName(options.sassOutputFile, cwd)
+  // sass output file
+  const fallbackOutputFile = options.cssFallbackOutputFile ? getAbsoluteFileName(options.cssFallbackOutputFile, cwd) : null
   // web with globals
   const globalWebVar = options.globalWebVar
   // entry sass file
   const sassEntryFile = getAbsoluteFileName(options.sassEntryFile, cwd)
 
-  if (jsOutputFile.endsWith('ts') && globalWebVar) {
+  if (jsOutputFile.endsWith('.ts') && globalWebVar) {
     throw new Error('TypeScript output with direct web usage is not possible - file has to be processed anyway!')
   }
   if (!(await exists(sassEntryFile))) {
@@ -73,9 +77,12 @@ export async function runCli(cwd: string) {
     await writeFile(sassOutputFile, sassVarsContentBase)
   }
 
+  // render sass
+  const renderedCss = renderSass(sassEntryFile)
+
   // run find-used-vars to get used vars
   const colorNames = Object.keys(colorDefs)
-  const usedVars = getUsedVariables(sassEntryFile, colorNames)
+  const usedVars = getUsedVariables(renderedCss, colorNames)
   const usedVarsWithColors = Object.assign(
     {} as ColorCallSet,
     ...Object.entries(usedVars).map(([colorName, colorDef]) => {
@@ -86,14 +93,25 @@ export async function runCli(cwd: string) {
     })
   )
   // run generate-vars to have sass information
-  const updater = new ColorGenerator(usedVarsWithColors)
-  const sassVarsContent = updater.createWritableSassFile()
+  const generator = new ColorGenerator(usedVarsWithColors)
+  const sassVarsContent = generator.createWritableSassFile()
+
+  if (fallbackOutputFile) {
+    const allColorVars = generator.getAllVars()
+    // fill in fallback values
+    const cssFallbackContent = getCssFallbacks(renderedCss, allColorVars)
+    if (cssFallbackContent) {
+      await writeFile(fallbackOutputFile, cssFallbackContent)
+      console.log(`Updated ${fallbackOutputFile}`)
+    }
+  }
+
   // write sass vars output file
   await writeFile(sassOutputFile, sassVarsContent)
   console.log(`Updated ${sassOutputFile}`)
   // write js output file
   let jsOutputContent: string
-  if (jsOutputFile.endsWith('ts')) {
+  if (jsOutputFile.endsWith('.ts')) {
     // write ts file
     jsOutputContent = `
 export type ColorFn =

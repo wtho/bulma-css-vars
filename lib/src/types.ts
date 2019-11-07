@@ -1,9 +1,10 @@
 export interface BulmaCssVarsOptions {
   jsOutputFile: string
   sassOutputFile: string
+  cssFallbackOutputFile?: string
   sassEntryFile: string
-  colorDefs: {[colorName: string]: ColorDef}
-  globalWebVar: boolean
+  colorDefs: { [colorName: string]: ColorDef }
+  globalWebVar?: boolean
 }
 
 export interface Hsl {
@@ -41,7 +42,12 @@ export interface ColorFnCall {
 
 export interface ColorCallSet {
   [color: string]: {
-    calls: ColorFnCall[],
+    calls: ColorFnCall[]
     value?: Hsl
   }
+}
+
+export interface NameValueColor {
+  name: string
+  value: string
 }

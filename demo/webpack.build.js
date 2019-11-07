@@ -1,8 +1,6 @@
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin')
 
 const webpackBaseConfig = require('./webpack.base')
 
@@ -37,7 +35,5 @@ module.exports = merge(webpackBaseConfig, {
       inject: true,
     }),
     new MiniCssExtractPlugin(),
-    new HtmlWebpackExcludeAssetsPlugin(),
-    new StyleExtHtmlWebpackPlugin(),
   ],
 })

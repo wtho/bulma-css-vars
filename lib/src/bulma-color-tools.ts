@@ -1,5 +1,5 @@
 import * as Color from 'color'
-import { Hsl, Rgb, Hex, ColorDef } from './types'
+import { Hsl, Rgb, Hex, ColorDef, NameValueColor } from './types'
 
 function lightness(color: Color) {
   return (color.hsl() as any).color[2] / 100
@@ -70,7 +70,7 @@ function isNumberFieldInObject(fieldName: string, obj: any) {
 export function getNameValFromColorDef(
   colorName: string,
   colorDef: ColorDef
-): { name: string; value: string } {
+): NameValueColor {
   const name = `--${colorName}`
   return {
     name,

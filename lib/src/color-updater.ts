@@ -4,7 +4,7 @@ import {
   stringToHsl,
   strValFromColorDef,
 } from './bulma-color-tools'
-import { ColorFn, ColorFnCall, ColorCallSet } from './types'
+import { ColorFn, ColorFnCall, ColorCallSet, NameValueColor } from './types'
 
 export class ColorUpdater {
   constructor(protected colorVals: ColorCallSet) {}
@@ -104,6 +104,13 @@ export class ColorUpdater {
 }
 
 export class ColorGenerator extends ColorUpdater {
+  getAllVars() {
+    return [
+      ...this.getBaseVars(),
+      ...([] as NameValueColor[]).concat(...this.getDerivedVars())
+    ]
+  }
+
   createWritableSassFileOnlySassBaseVariables(): string {
     return `${this.getBaseVarNames()
       .map(name => `$${name}: var(--${name})`)

@@ -1,6 +1,6 @@
 # Bulma CSS Vars
 
-Bulma CSS Vars extends [**Bulma**](https://github.com/jgthms/bulma) to use CSS variables, that can be set to arbitrary values at runtime on the website.
+Bulma CSS Vars extends [**Bulma**](https://github.com/jgthms/bulma) to use CSS variables, that can be set to arbitrary values at runtime on the website and installs fallbacks for browsers without CSS variables capabilities.
 
 [![version](https://img.shields.io/npm/v/bulma-css-vars.svg)](https://www.npmjs.org/package/bulma-css-vars)
 [![](https://github.com/wtho/bulma-css-vars/workflows/ci/badge.svg)](https://github.com/wtho/bulma-css-vars/actions?query=workflow%3Aci)
@@ -38,27 +38,30 @@ const appColors = {
 appColors['text'] = appColors['primary']
 
 module.exports = {
+  sassEntryFile: './src/style/main-sass-file.sass',
   jsOutputFile: './src/generated/bulma-colors.js',
   sassOutputFile: './src/style/bulma-vars.sass',
-  sassEntryFile: './src/style/main-sass-file.sass',
+  cssFallbackOutputFile: './src/style/bulma-fallbacks.css',
   colorDefs: appColors,
   globalWebVar: false
 }
 ```
 You need to configure `bulma-css-vars` to tell it about your sass setup, especially your sass entry file, the variables you want to modify and where the generated bulma files should be placed.
 
-| Config key       |                                                                                                    |
-| ---------------- |:---------------------------------------------------------------------------------------------------|
-| `sassEntryFile`  | Sass Entry File of you Application - relative path form config file                                |
-| `jsOutputFile`   | full name of generated js file, can also be `<a-typescript-file>.ts`                               |
-| `sassOutputFile` | full name of generated sass file, should be included in your app styles                            |
-| `colorDefs`      | color definitions, names have to match bulma color names (see examples above)                      |
-| `globalWebVar`   | if you import js files directly in the browser, you need `true`, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
+| Config key              |                                                                                                    |
+| ----------------------- |:---------------------------------------------------------------------------------------------------|
+| `sassEntryFile`         | Sass Entry File of you Application - relative path form config file                                |
+| `jsOutputFile`          | full name of generated js file, can also be `<a-typescript-file>.ts`                               |
+| `sassOutputFile`        | full name of generated sass file, should be included in your app styles                            |
+| `cssFallbackoutputFile` | full name of generated css file, should be included in your sass app styles (optional)             | 
+| `colorDefs`             | color definitions, names have to match bulma color names (see examples above)                      |
+| `globalWebVar`          | if you import js files directly in the browser, you need `true`, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
 
 Some more files have to be setup.
 
 ```sass
 // main-sass-file.sass
+@import './bulma-fallbacks.css' // import fallbacks first, so they are overridden
 @import './bulma-vars.sass'
 @import '../node_modules/bulma-css-vars/src/bulma-cv-lib.sass'
 ```
@@ -70,7 +73,7 @@ Instead of using `bulma-cv-lib.sass`, you can also just use the bulma packages y
     "update-bulma-colors": "bulma-css-vars",
   }
 ```
-The script `./node_modules/.bin/bulma-css-vars` has to be run whenever you modify the colors in `bulma-css-vars.config.js` and it will update the two output files as well.
+The script `./node_modules/.bin/bulma-css-vars` has to be run whenever you modify the colors in `bulma-css-vars.config.js` and it will update the three output files as well.
 
 ```js
 // in-the-web-app.js
@@ -104,7 +107,6 @@ Annoyingly, the color updater needs knowledge of the current variables, so `bulm
 ### Caveats
 * Requires Node.js and Dart Sass
 * The complexity of the setup
-* This solution does not provide a fallback, so browsers without CSS Variables support will not be able to handle the variable colors
 
 ## What is the difficulty? Why this setup?
 The problem is, that Bulma relies heavily on sass preprocessing, so if you set a color variable for `$primary`, this color will be modified for hover / focus shades on buttons, inversions for texts on buttons are calculated, and so on.

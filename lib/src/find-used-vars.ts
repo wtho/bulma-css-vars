@@ -1,16 +1,11 @@
-import * as sass from 'sass'
 
 import { bulmaColorTools } from './bulma-color-tools'
 import { ColorFn, ColorFnCall, ColorCallSet } from './types'
 
 export function getUsedVariables(
-  sassFilePathOrOptions: string | sass.Options,
+  renderedCss: string,
   colorNames: string[]
 ): ColorCallSet {
-  const sassOptions = typeof sassFilePathOrOptions === 'string' ? { file: sassFilePathOrOptions } : sassFilePathOrOptions
-  const rendered = sass.renderSync(sassOptions)
-
-  const renderedCss: string = rendered.css.toString()
 
   const colorVarNames = colorNames.map(cn => `--${cn}`)
   const colorDerivedVarNamePrefix = colorNames.map(cn => `--${cn}--`)

@@ -40,6 +40,7 @@ pickerContainer.addEventListener('click', function(
   )
 })
 
+console.log('colorUpdater')
 const colorUpdater = new ColorUpdater(bulmaCssVariablesDefs)
 
 function updateThemeColor(colorName: string, value: string) {

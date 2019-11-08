@@ -7,9 +7,6 @@ Bulma CSS Vars extends [**Bulma**](https://github.com/jgthms/bulma) to use CSS v
 [![](https://img.shields.io/badge/Demo-green)](https://wtho.github.io/bulma-css-vars)
 
 
-
-<!-- [Demo](bulma-css-vars.github.io) -->
-
 This is an extension and a kind of "sass-pre-post-processor" that tries to be as least intrusive as possible to Bulma, while making arbitrary color changes in the bulma color schemes automated, as easy as possible.
 
 There is quite some setup and configuration to be done, but once it is setup, it works like a charm. Read the section [What is the difficulty](#what-is-the-difficulty-why-this-setup), to learn why this setup is required.
@@ -27,6 +24,7 @@ To use this package, you have to use the dart implementation of sass, the `sass`
 const { hsl, rgb } = require('bulma-css-vars')
 
 // color names have to match bulma's $variable-name, without '$'
+// values will be used for initial colors and fallback
 const appColors = {
   black: hsl(0, 0, 4),
   'scheme-main': rgb(200, 105, 84),

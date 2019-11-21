@@ -51,7 +51,7 @@ You need to configure `bulma-css-vars` to tell it about your sass setup, especia
 | `sassEntryFile`         | Sass Entry File of you Application - relative path form config file                                |
 | `jsOutputFile`          | full name of generated js file, can also be `<a-typescript-file>.ts`                               |
 | `sassOutputFile`        | full name of generated sass file, should be included in your app styles                            |
-| `cssFallbackoutputFile` | full name of generated css file, should be included in your sass app styles (optional)             | 
+| `cssFallbackOutputFile` | full name of generated css file, should be included in your sass app styles (optional)             | 
 | `colorDefs`             | color definitions, names have to match bulma color names (see examples above)                      |
 | `globalWebVar`          | if you import js files directly in the browser, you need `true`, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
 

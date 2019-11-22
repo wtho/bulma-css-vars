@@ -78,10 +78,10 @@ The script `./node_modules/.bin/bulma-css-vars` has to be run whenever you modif
 const { ColorUpdater } = require('bulma-css-vars');
 const { bulmaCssVariablesDefs } = require('./generated/bulma-colors');
 
-const updater = new ColorUpdater(bulmaCssVariablesDefs):
+const updater = new ColorUpdater(bulmaCssVariablesDefs);
 
 // do the update manually
-const updated = colorUpdater.getUpdatedVars(colorName, value):
+const updated = colorUpdater.getUpdatedVars(colorName, value);
 updated.forEach(({ name, value }) =>
   document.documentElement.style.setProperty(name, value)
 );

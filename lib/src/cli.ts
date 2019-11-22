@@ -152,7 +152,7 @@ Object.defineProperty(window, 'bulmaCssVarsDef',
   } else {
     // write js file
     jsOutputContent = `
-module.exports = ${JSON.stringify(usedVars, null, 2)}
+module.exports = ${JSON.stringify({ bulmaCssVariablesDefs: usedVars }, null, 2)}
 `
   }
   const fullJsOutputFile =

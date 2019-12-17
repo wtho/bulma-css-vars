@@ -51,6 +51,7 @@ export function findCssVarRules(rules: StyleRules['rules'], usedVars: NameValueC
   }
 
   export function findCssVarDeclaration(dec: Declaration, usedVars: NameValueColor[]) {
+    if(dec.type === 'comment') return null;
     const val = dec.value.trim()
     if (val.startsWith('var(--') && val.endsWith(')')) {
       const varName = val.substring(4, val.length - 1)

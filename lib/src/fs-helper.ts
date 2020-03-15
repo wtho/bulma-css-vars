@@ -4,7 +4,7 @@ import * as path from 'path'
 
 
 async function mkdir(dirPath: string) {
-  return new Promise((rs, rj) => mkdirp(dirPath, err => err ? rj(err) : rs()))
+  return mkdirp(dirPath)
 }
 
 export async function writeFile(filePath: string, content: string) {

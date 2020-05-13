@@ -155,3 +155,7 @@ In your html:
 </body>
 ```
 
+## New Features
+PRs are welcome!
+If you want to build this repository and try out the demo, make sure you use `yarn` and `yarn install` to install the packages in the `demo` folder. `npm` will create symlinks instead of true file copies, which might create problems on referencing relative bulma files.
+

@@ -14,15 +14,21 @@ import { getCssFallbacks } from './css-post-processor'
 import { renderSass } from './render-sass'
 
 const configFileName = 'bulma-css-vars.config.js'
+const mainSassFileName = 'src/main.scss'
 
-export async function runCli(cwd: string) {
-  const configFileNamePath = path.join(cwd, configFileName)
+const configFilePathAtCwd = (cwd: string) => path.join(cwd, configFileName)
+const mainSassFilePathAtCwd = (cwd: string) => path.join(cwd, mainSassFileName)
+
+async function validateOptions(cwd: string) {
+  const configFilePath = configFilePathAtCwd(cwd)
 
   let loadedOptions = {}
   try {
-    loadedOptions = require(configFileNamePath)
+    loadedOptions = require(configFilePath)
   } catch (err) {
-    throw new Error(`Required config file '${configFileName}' was not found at ${configFileNamePath}`)
+    throw new Error(
+      `Required config file '${configFileName}' was not found at ${configFilePath}`
+    )
   }
   const options: BulmaCssVarsOptions = {
     ...defaultOptions,
@@ -30,7 +36,9 @@ export async function runCli(cwd: string) {
   }
 
   if (options.sassEntryFile === null) {
-    throw new Error('[Bulma CSS Vars] cannot create definitions, entry sass file does not exist in config')
+    throw new Error(
+      '[Bulma CSS Vars] cannot create definitions, entry sass file does not exist in config'
+    )
   }
 
   // js output file
@@ -38,20 +46,44 @@ export async function runCli(cwd: string) {
   // sass output file
   const sassOutputFile = getAbsoluteFileName(options.sassOutputFile, cwd)
   // sass output file
-  const fallbackOutputFile = options.cssFallbackOutputFile ? getAbsoluteFileName(options.cssFallbackOutputFile, cwd) : null
+  const fallbackOutputFile = options.cssFallbackOutputFile
+    ? getAbsoluteFileName(options.cssFallbackOutputFile, cwd)
+    : null
   // web with globals
   const globalWebVar = options.globalWebVar
   // entry sass file
   const sassEntryFile = getAbsoluteFileName(options.sassEntryFile, cwd)
 
   if (jsOutputFile.endsWith('.ts') && globalWebVar) {
-    throw new Error('TypeScript output with direct web usage is not possible - file has to be processed anyway!')
+    throw new Error(
+      'TypeScript output with direct web usage is not possible - file has to be processed anyway!'
+    )
   }
   if (!(await exists(sassEntryFile))) {
     throw new Error(
       `[Bulma CSS Vars] cannot create definitions, entry sass file does not exist in file system at ${sassEntryFile}`
     )
   }
+
+  return {
+    options,
+    jsOutputFile,
+    sassOutputFile,
+    fallbackOutputFile,
+    globalWebVar,
+    sassEntryFile,
+  }
+}
+
+export async function runCli(cwd: string) {
+  const {
+    options,
+    fallbackOutputFile,
+    globalWebVar,
+    jsOutputFile,
+    sassEntryFile,
+    sassOutputFile,
+  } = await validateOptions(cwd)
 
   // colorDefs
   const colorDefs = options.colorDefs
@@ -161,4 +193,41 @@ module.exports = ${JSON.stringify({ bulmaCssVariablesDefs: usedVars }, null, 2)}
       : `${jsOutputFile}.js`
   await writeFile(fullJsOutputFile, jsOutputContent)
   console.log(`Updated ${jsOutputFile}`)
+}
+
+const defaultConfigContent = `const appColors = {
+  primary: '#5229fa',
+}
+
+module.exports = {
+  jsOutputFile: 'src/bulma-generated/bulma-colors.js',
+  sassOutputFile: 'src/bulma-generated/generated-bulma-vars.sass',
+  cssFallbackOutputFile: 'src/bulma-generated/generated-fallback.css',
+  colorDefs: appColors,
+  sassEntryFile: 'src/main.scss'
+}
+
+`
+
+const defaultMainScssContent = `@import './bulma-generated/generated-fallback.css';
+@import './bulma-generated/generated-bulma-vars.sass';
+@import '../node_modules/bulma-css-vars/bulma-cv-lib';
+
+`
+
+export async function runCliInit(cwd: string) {
+  const configFileNamePath = configFilePathAtCwd(cwd)
+  if (await exists(configFileNamePath)) {
+    console.log(
+      `bulma-css-vars Config file already exists at ${configFileNamePath}, exiting.`
+    )
+    process.exit(1)
+  }
+  await writeFile(configFileNamePath, defaultConfigContent)
+
+  const mainSassFilePath = mainSassFilePathAtCwd(cwd)
+
+  if (!(await exists(mainSassFilePath))) {
+    await writeFile(mainSassFilePath, defaultMainScssContent)
+  }
 }

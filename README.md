@@ -15,9 +15,10 @@ There is quite some setup and configuration to be done, but once it is setup, it
 ```bash
 npm i -S bulma bulma-css-vars
 npm i -D sass
+node ./node_modules/.bin/bulma-css-vars --init
 ```
 
-To use this package, you have to use the dart implementation of sass, the `sass` package, version `1.23` or higher. If you use webpack and the `sass-loader`, you have to configure `options: { implementation: require('sass') }` as well.
+To use this package, you have to use the dart implementation of sass, the `sass` package, version `1.23` or higher. If you use webpack and the `sass-loader`, you have to make sure you do not have `node-sass` installed, or configure `options: { implementation: require('sass') }` for the `sass-loader`.
 
 ```js
 // bulma-css-vars.config.js

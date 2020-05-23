@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  entry: [ './src/index.ts', './src/bulma-css-vars-demo.sass' ],
+  entry: [ './src/index.ts', './src/main.scss' ],
   output: {
     path: path.join(__dirname, '../docs'),
     filename: 'bundle.js'

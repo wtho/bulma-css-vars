@@ -31,9 +31,11 @@ appColors['text'] = appColors['grey-dark']
 appColors['text-strong'] = appColors['grey-darker']
 
 module.exports = {
-  jsOutputFile: 'src/generated/bulma-colors.ts',
-  sassOutputFile: 'src/generated-bulma-vars.sass',
-  cssFallbackOutputFile: 'src/generated-fallback.css',
+  sassEntryFile: './src/main.scss',
+  jsOutputFile: './src/bulma-generated/bulma-colors.js',
+  sassOutputFile: './src/bulma-generated/generated-vars.sass',
+  cssFallbackOutputFile: './src/bulma-generated/generated-fallbacks.css',
   colorDefs: appColors,
-  sassEntryFile: 'src/bulma-css-vars-demo.sass'
+  globalWebVar: false,
+  transition: '0.5s ease',
 }

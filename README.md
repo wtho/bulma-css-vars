@@ -38,11 +38,12 @@ appColors['text'] = appColors['primary']
 
 module.exports = {
   sassEntryFile: './src/style/main-sass-file.sass',
-  jsOutputFile: './src/generated/bulma-colors.js',
-  sassOutputFile: './src/style/bulma-vars.sass',
-  cssFallbackOutputFile: './src/style/bulma-fallbacks.css',
+  jsOutputFile: './src/bulma-generated/bulma-colors.js',
+  sassOutputFile: './src/bulma-generated/generated-vars.sass',
+  cssFallbackOutputFile: './src/bulma-generated/generated-fallbacks.css',
   colorDefs: appColors,
-  globalWebVar: false
+  globalWebVar: false,
+  transition: '0.5s ease',
 }
 ```
 You need to configure `bulma-css-vars` to tell it about your sass setup, especially your sass entry file, the variables you want to modify and where the generated bulma files should be placed.
@@ -55,14 +56,15 @@ You need to configure `bulma-css-vars` to tell it about your sass setup, especia
 | `cssFallbackOutputFile` | full name of generated css file, should be included in your sass app styles (optional)             | 
 | `colorDefs`             | color definitions, names have to match bulma color names (see examples above)                      |
 | `globalWebVar`          | if you import js files directly in the browser, you need `true`, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
+| `transition`            | will create the [CSS transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) shorthand for all colored CSS variables, should consist of `[ <duration> [ <timing-function> [ <time-delay> ] ] ]` |
 
-Some more files have to be setup.
+Some more files have to be setup, which can be achieved using `node ./node_modules/bulma-css-vars --init`.
 
-```sass
-// main-sass-file.sass
-@import './bulma-fallbacks.css' // import fallbacks first, so they are overridden
-@import './bulma-vars.sass'
-@import '../node_modules/bulma-css-vars/src/bulma-cv-lib.sass'
+```scss
+// main.scss
+@import './bulma-generated/generated-fallback.css'; // import fallbacks first, so they are overridden
+@import './bulma-generated/generated-vars.sass';
+@import '../node_modules/bulma-css-vars/bulma-cv-lib';
 ```
 Instead of using `bulma-cv-lib.sass`, you can also just use the bulma packages you like. Look inside the `bulma-cv-lib.sass` to understand more, and especially import `functions.sass` right after the original `functions.sass` is loaded.
 
@@ -77,7 +79,7 @@ The script `./node_modules/.bin/bulma-css-vars` has to be run whenever you modif
 ```js
 // in-the-web-app.js
 const { ColorUpdater } = require('bulma-css-vars');
-const { bulmaCssVariablesDefs } = require('./generated/bulma-colors');
+const { bulmaCssVariablesDefs } = require('./bulma-generated/bulma-colors');
 
 const updater = new ColorUpdater(bulmaCssVariablesDefs);
 
@@ -94,7 +96,7 @@ You can also use TypeScript
 ```ts
 // in-the-web-app.ts
 import { ColorUpdater } from 'bulma-css-vars';
-import { bulmaCssVariablesDefs } from './generated/bulma-colors';
+import { bulmaCssVariablesDefs } from './bulma-generated/bulma-colors';
 
 // the updater do the style change
 const colorUpdater = new ColorUpdater(bulmaCssVariablesDefs);

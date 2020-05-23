@@ -1,3 +1,4 @@
+// <reference path="./mkdir.d.ts"/>
 import { promises as fsp } from 'fs'
 import * as mkdirp from 'mkdirp'
 import * as path from 'path'

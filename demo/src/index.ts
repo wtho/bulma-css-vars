@@ -4,7 +4,7 @@ import { ColorUpdater } from 'bulma-css-vars'
 
 import Picker from 'vanilla-picker'
 
-import { bulmaCssVariablesDefs } from './generated/bulma-colors'
+import { bulmaCssVariablesDefs } from './bulma-generated/bulma-colors'
 
 const pickerContainer = document.querySelector('#color-picker')
 const picker = new Picker({

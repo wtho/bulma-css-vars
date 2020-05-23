@@ -10,7 +10,7 @@ module.exports = merge(webpackBaseConfig, {
   entry: ['./src/dev-client.js'],
   module: {
     rules: [{
-        test: /\.sass$/,
+        test: /\.s(a|c)ss$/,
         use: [
           'style-loader',
           'css-loader',

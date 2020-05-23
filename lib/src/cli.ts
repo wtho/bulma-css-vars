@@ -41,6 +41,12 @@ async function validateOptions(cwd: string) {
     )
   }
 
+  if (options.transition && typeof options.transition !== 'string') {
+    throw new Error(
+      `[Bulma CSS Vars] if 'transition' is declared, it must be a string`
+    )
+  }
+
   // js output file
   const jsOutputFile = getAbsoluteFileName(options.jsOutputFile, cwd)
   // sass output file
@@ -131,7 +137,7 @@ export async function runCli(cwd: string) {
   if (fallbackOutputFile) {
     const allColorVars = generator.getAllVars()
     // fill in fallback values
-    const cssFallbackContent = getCssFallbacks(renderedCss, allColorVars)
+    const cssFallbackContent = getCssFallbacks(renderedCss, allColorVars, options.transition)
     if (cssFallbackContent) {
       await writeFile(fallbackOutputFile, cssFallbackContent)
       console.log(`Updated ${fallbackOutputFile}`)
@@ -204,7 +210,8 @@ module.exports = {
   sassOutputFile: 'src/bulma-generated/generated-bulma-vars.sass',
   cssFallbackOutputFile: 'src/bulma-generated/generated-fallback.css',
   colorDefs: appColors,
-  sassEntryFile: 'src/main.scss'
+  sassEntryFile: 'src/main.scss',
+  transition: '0.5s ease'
 }
 
 `

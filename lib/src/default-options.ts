@@ -7,5 +7,6 @@ export const defaultOptions: BulmaCssVarsOptions = {
   cssFallbackOutputFile: './generated-bulma-fallback.css',
   sassEntryFile: null,
   colorDefs: {},
-  globalWebVar: false
+  globalWebVar: false,
+  transition: null,
 }

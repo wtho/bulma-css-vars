@@ -9,7 +9,7 @@ module.exports = merge(webpackBaseConfig, {
   module: {
     rules: [
       {
-        test: /\.sass$/,
+        test: /\.s(a|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',

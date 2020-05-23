@@ -5,6 +5,7 @@ export interface BulmaCssVarsOptions {
   sassEntryFile: string
   colorDefs: { [colorName: string]: ColorDef }
   globalWebVar?: boolean
+  transition?: string
 }
 
 export interface Hsl {

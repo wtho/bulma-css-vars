@@ -1,6 +1,6 @@
 {
   "name": "bulma-css-vars",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "description": "Bulma with CSS variables",
   "keywords": [
     "bulma",
@@ -35,9 +35,9 @@
   },
   "dependencies": {
     "color": "^3.1.2",
-    "css": "^2.2.4",
+    "css": "^3.0.0",
     "mkdirp": "^1.0.4",
-    "sass": "^1.26.9"
+    "sass": "^1.26.10"
   },
   "peerDependencies": {
     "bulma": "^0.9.0"
@@ -45,16 +45,16 @@
   "devDependencies": {
     "@types/color": "^3.0.1",
     "@types/css": "0.0.31",
-    "@types/jest": "^26.0.3",
+    "@types/jest": "^26.0.10",
     "@types/mkdirp": "1.0.0",
-    "@types/node": "^14.0.14",
+    "@types/node": "^14.6.1",
     "@types/sass": "^1.16.0",
-    "jest": "^26.1.0",
-    "prettier": "^2.0.5",
-    "ts-jest": "^26.1.1",
-    "ts-loader": "^7.0.5",
-    "typescript": "^3.9.5",
-    "webpack": "^4.43.0",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "ts-jest": "^26.3.0",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
 }

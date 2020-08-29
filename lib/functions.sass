@@ -48,13 +48,13 @@
     $num: str-slice(quote($perccalc), 0, -2) // remove '%''
     @return wrap(#{$color}--#{$num}--desaturate)
 
-@function rgba($col, $val)
+@function rgba($col, $alpha)
   @if type-of($col) == 'color'
-    @return color.change($col, $alpha: $val)
+    @return color.change($col, $alpha: $alpha)
   @else
     $color: unwrap($col)
     @if str-index($color, "--") == 1
-      @return wrap(#{$color}--#{$val * 100}--rgba)
+      @return wrap(#{$color}--#{$alpha * 100}--rgba)
     @else
       @return color.change($color, $alpha: $perc)
 
@@ -134,3 +134,11 @@
     @return change-color($color, $lightness: max($base-l, $target-l))
   @return $text-strong
 
+@function bulmaRgba($color, $alpha)
+  @return rgba($color, $alpha)
+
+@function bulmaDarken($color, $amount)
+  @return darken($color, $amount)
+
+@function bulmaLighten($color, $amount)
+  @return lighten($color, $amount)

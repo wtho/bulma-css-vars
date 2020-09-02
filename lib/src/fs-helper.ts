@@ -9,6 +9,9 @@ async function mkdir(dirPath: string) {
 }
 
 export async function writeFile(filePath: string, content: string) {
+  if (!fsp || !fsp.writeFile) {
+    throw new Error('[Bulma CSS Vars] requires fs.promises (Node.js v12 or higher)')
+  }
   const dir = path.dirname(filePath)
   if (!(await exists(dir))) {
     await mkdir(dir)
@@ -17,6 +20,9 @@ export async function writeFile(filePath: string, content: string) {
 }
 
 export async function exists(filePath: string): Promise<boolean> {
+  if (!fsp || !fsp.access) {
+    throw new Error('[Bulma CSS Vars] requires fs.promises (Node.js v12 or higher)')
+  }
   try {
     await fsp.access(filePath)
     return true
@@ -26,6 +32,9 @@ export async function exists(filePath: string): Promise<boolean> {
 }
 
 export async function fileStartsWith(filePath: string, start: string): Promise<boolean> {
+  if (!fsp || !fsp.readFile) {
+    throw new Error('[Bulma CSS Vars] requires fs.promises (Node.js v12 or higher)')
+  }
   try {
     const content = (await fsp.readFile(filePath)).toString()
     return content.startsWith(start)

@@ -31,7 +31,7 @@ compiler.hooks.compilation.tap('CustomReloadDevServer', compilation => {
   HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
     'CustomReloadDevServer', // <-- Set a meaningful name here for stacktraces
     (data, cb) => {
-      const newHtml = data.html.source()
+      const newHtml = data.html
       if (lastHtml !== newHtml) {
         hotMiddleware.publish({ action: 'reload' })
       }

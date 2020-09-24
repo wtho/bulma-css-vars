@@ -56,7 +56,7 @@
     @if str-index($color, "--") == 1
       @return wrap(#{$color}--#{$alpha * 100}--rgba)
     @else
-      @return color.change($color, $alpha: $perc)
+      @return color.change($color, $alpha: $alpha)
 
 @function adjust-hue($col, $deg)
   @if type-of($col) == 'color'

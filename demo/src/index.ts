@@ -6,8 +6,9 @@ import Picker from 'vanilla-picker'
 
 import { bulmaCssVariablesDefs } from './bulma-generated/bulma-colors'
 
-const pickerContainer = document.querySelector('#color-picker')
+const pickerContainer: HTMLElement = document.querySelector('#color-picker')
 const picker = new Picker({
+  parent: pickerContainer,
   popup: 'top',
   onChange: function(color: { rgbaString: string }) {
     const control = this.settings.parent

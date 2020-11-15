@@ -48,15 +48,21 @@
     $num: str-slice(quote($perccalc), 0, -2) // remove '%''
     @return wrap(#{$color}--#{$num}--desaturate)
 
-@function rgba($col, $alpha)
+@function rgba($r, $g, $b: null, $alpha: null)
+  @if type-of($r) == number and type-of($g) == number and type-of($b) == number and type-of($alpha) == number
+    @return rgb($r, $g, $b, $alpha)
+  $col: $r
+  $alpha: $g
   @if type-of($col) == 'color'
+    @return color.change($col, $alpha: $alpha)
+  @else if type-of($col) == 'color'
     @return color.change($col, $alpha: $alpha)
   @else
     $color: unwrap($col)
     @if str-index($color, "--") == 1
-      @return wrap(#{$color}--#{$alpha * 100}--rgba)
+      @return wrap(#{$color}--#{$g * 100}--rgba)
     @else
-      @return color.change($color, $alpha: $alpha)
+      @return color.change($color, $alpha: $g)
 
 @function adjust-hue($col, $deg)
   @if type-of($col) == 'color'

@@ -1,14 +1,13 @@
-// <reference path="./mkdir.d.ts"/>
 import { promises as fsp } from 'fs'
 import * as mkdirp from 'mkdirp'
 import * as path from 'path'
 
 
-async function mkdir(dirPath: string) {
+async function mkdir(dirPath: string): Promise<string> {
   return mkdirp(dirPath)
 }
 
-export async function writeFile(filePath: string, content: string) {
+export async function writeFile(filePath: string, content: string): Promise<void> {
   if (!fsp || !fsp.writeFile) {
     throw new Error('[Bulma CSS Vars] requires fs.promises (Node.js v12 or higher)')
   }
@@ -43,7 +42,7 @@ export async function fileStartsWith(filePath: string, start: string): Promise<b
   }
 }
 
-export function getAbsoluteFileName(fileName: string, cwd: string) {
+export function getAbsoluteFileName(fileName: string, cwd: string): string {
   if (!path.isAbsolute(fileName)) {
     return path.join(cwd, fileName)
   }

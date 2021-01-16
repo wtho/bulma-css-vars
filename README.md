@@ -46,7 +46,9 @@ module.exports = {
   transition: '0.5s ease',
 }
 ```
-You need to configure `bulma-css-vars` to tell it about your sass setup, especially your sass entry file, the variables you want to modify and where the generated bulma files should be placed.
+
+You need to configure `bulma-css-vars` to tell it about your sass setup, especially your sass entry file, the variables (color) you want to have available as css variables and where the generated bulma files should be placed.
+
 
 | Config key              |                                                                                                    |
 | ----------------------- |:---------------------------------------------------------------------------------------------------|
@@ -57,6 +59,82 @@ You need to configure `bulma-css-vars` to tell it about your sass setup, especia
 | `colorDefs`             | color definitions, names have to match bulma color names (see examples above)                      |
 | `globalWebVar`          | if you import js files directly in the browser, you need `true`, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
 | `transition`            | will create the [CSS transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) shorthand for all colored CSS variables, should consist of `[ <duration> [ <timing-function> [ <time-delay> ] ] ]` |
+
+```js
+// This is the full set of colors variables of Bulma 0.9.2
+// Using this color definitions, you are getting the default bulma theme
+// with all color variables as css variables
+
+const appColors = {
+  'black':          hsl(0, 0, 4),
+  'black-bis':      hsl(0, 0, 7),
+  'black-ter':      hsl(0, 0, 14),
+
+  'grey-darker':    hsl(0, 0, 21),
+  'grey-dark':      hsl(0, 0, 29),
+  'grey':           hsl(0, 0, 48),
+  'grey-light':     hsl(0, 0, 71),
+  'grey-lighter':   hsl(0, 0, 86),
+  'grey-lightest':  hsl(0, 0, 93),
+
+  'white-ter':      hsl(0, 0, 96),
+  'white-bis':      hsl(0, 0, 98),
+  'white':          hsl(0, 0, 100),
+
+  'orange':         hsl(14,  100, 53),
+  'yellow':         hsl(48,  100, 67),
+  'green':          hsl(141, 53,  53),
+  'turquoise':      hsl(171, 100, 41),
+  'cyan':           hsl(204, 71,  53),
+  'blue':           hsl(217, 71,  53),
+  'purple':         hsl(271, 100, 71),
+  'red':            hsl(348, 86, 61),
+}
+
+appColors['primary'] = appColors['turquoise']
+appColors['info'] = appColors['cyan']
+appColors['success'] = appColors['green']
+appColors['warning'] = appColors['yellow']
+appColors['danger'] = appColors['red']
+appColors['light'] = appColors['white-ter']
+appColors['dark'] = appColors['grey-darker']
+
+appColors['scheme-main'] = appColors['white']
+appColors['scheme-main-bis'] = appColors['white-bis']
+appColors['scheme-main-ter'] = appColors['white-ter']
+appColors['scheme-invert'] = appColors['black']
+appColors['scheme-invert-bis'] = appColors['black-bis']
+appColors['scheme-invert-ter'] = appColors['black-ter']
+
+appColors['background'] = appColors['white-ter']
+
+appColors['border'] = appColors['grey-lighter']
+appColors['border-hover'] = appColors['grey-light']
+appColors['border-light'] = appColors['grey-lightest']
+appColors['border-light-hover'] = appColors['grey-light']
+
+appColors['text'] = appColors['grey-dark']
+appColors['text-light'] = appColors['grey']
+appColors['text-strong'] = appColors['grey-darker']
+
+appColors['code-background'] = appColors['background']
+
+appColors['pre'] = appColors['text']
+appColors['pre-background'] = appColors['background']
+
+appColors['link'] = appColors['blue']
+appColors['link-visited'] = appColors['purple']
+appColors['link-hover'] = appColors['grey-darker']
+appColors['link-hover-border'] = appColors['grey-light']
+appColors['link-focus'] = appColors['grey-darker']
+appColors['link-active'] = appColors['grey-darker']
+appColors['link-active-border'] = appColors['grey-dark']
+
+appColors['body-background-color'] = appColors['scheme-main']
+appColors['body-color'] = appColors['text']
+appColors['hr-background-color'] = appColors['background']
+appColors['strong-color'] = appColors['text-strong']
+```
 
 Some more files have to be setup, which can be achieved using `node ./node_modules/bulma-css-vars --init`.
 

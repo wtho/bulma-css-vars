@@ -58,7 +58,7 @@ You need to configure `bulma-css-vars` to tell it about your sass setup, especia
 | `globalWebVar`          | if you import js files directly in the browser, you need `true`, see [Direct Web Setup](#direct-web-setup), defaults to `false` |
 | `transition`            | will create the [CSS transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) shorthand for all colored CSS variables, should consist of `[ <duration> [ <timing-function> [ <time-delay> ] ] ]` |
 
-Some more files have to be setup, which can be achieved using `node ./node_modules/bulma-css-vars --init`.
+Some more files have to be setup, which can be achieved using `node ./node_modules/.bin/bulma-css-vars --init`.
 
 ```scss
 // main.scss

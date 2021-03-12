@@ -1,6 +1,6 @@
 .modal-close,
 .delete {
-  background-color: rgba(10, 10, 10, 0.2);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -16,13 +16,13 @@
 .delete:hover,
 .modal-close:focus,
 .delete:focus {
-  background-color: rgba(10, 10, 10, 0.3);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .modal-close:active,
 .delete:active {
-  background-color: rgba(10, 10, 10, 0.4);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -48,7 +48,7 @@ a:hover {
 
 code {
   background-color: rgb(245, 245, 245);
-  color: rgb(241, 70, 104);
+  color: rgb(218, 17, 57);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -123,8 +123,19 @@ table th {
 
 .button.is-text:active,
 .button.is-text.is-active {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(245, 245, 245);
   color: rgb(54, 54, 54);
+  transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.button.is-ghost {
+  color: rgb(50, 115, 220);
+  transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.button.is-ghost:hover,
+.button.is-ghost.is-hovered {
+  color: rgb(50, 115, 220);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -136,7 +147,7 @@ table th {
 
 .button.is-white:hover,
 .button.is-white.is-hovered {
-  background-color: rgb(249, 249, 249);
+  background-color: rgb(255, 255, 255);
   color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -149,7 +160,7 @@ table th {
 
 .button.is-white:active,
 .button.is-white.is-active {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -168,7 +179,7 @@ fieldset[disabled] .button.is-white {
 
 .button.is-white.is-inverted:hover,
 .button.is-white.is-inverted.is-hovered {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -232,7 +243,7 @@ fieldset[disabled] .button.is-white.is-inverted.is-outlined {
 
 .button.is-black:hover,
 .button.is-black.is-hovered {
-  background-color: rgb(4, 4, 4);
+  background-color: rgb(10, 10, 10);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -245,7 +256,7 @@ fieldset[disabled] .button.is-white.is-inverted.is-outlined {
 
 .button.is-black:active,
 .button.is-black.is-active {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(10, 10, 10);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -264,7 +275,7 @@ fieldset[disabled] .button.is-black {
 
 .button.is-black.is-inverted:hover,
 .button.is-black.is-inverted.is-hovered {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -328,7 +339,7 @@ fieldset[disabled] .button.is-black.is-inverted.is-outlined {
 
 .button.is-light:hover,
 .button.is-light.is-hovered {
-  background-color: rgb(239, 239, 239);
+  background-color: rgb(245, 245, 245);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -341,7 +352,7 @@ fieldset[disabled] .button.is-black.is-inverted.is-outlined {
 
 .button.is-light:active,
 .button.is-light.is-active {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(245, 245, 245);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -424,7 +435,7 @@ fieldset[disabled] .button.is-light.is-inverted.is-outlined {
 
 .button.is-dark:hover,
 .button.is-dark.is-hovered {
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(54, 54, 54);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -437,7 +448,7 @@ fieldset[disabled] .button.is-light.is-inverted.is-outlined {
 
 .button.is-dark:active,
 .button.is-dark.is-active {
-  background-color: rgb(41, 41, 41);
+  background-color: rgb(54, 54, 54);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -456,7 +467,7 @@ fieldset[disabled] .button.is-dark {
 
 .button.is-dark.is-inverted:hover,
 .button.is-dark.is-inverted.is-hovered {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -520,7 +531,7 @@ fieldset[disabled] .button.is-dark.is-inverted.is-outlined {
 
 .button.is-primary:hover,
 .button.is-primary.is-hovered {
-  background-color: rgb(0, 196, 167);
+  background-color: rgb(0, 209, 178);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -533,7 +544,7 @@ fieldset[disabled] .button.is-dark.is-inverted.is-outlined {
 
 .button.is-primary:active,
 .button.is-primary.is-active {
-  background-color: rgb(0, 184, 156);
+  background-color: rgb(0, 209, 178);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -552,7 +563,7 @@ fieldset[disabled] .button.is-primary {
 
 .button.is-primary.is-inverted:hover,
 .button.is-primary.is-inverted.is-hovered {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -616,14 +627,14 @@ fieldset[disabled] .button.is-primary.is-inverted.is-outlined {
 
 .button.is-primary.is-light:hover,
 .button.is-primary.is-light.is-hovered {
-  background-color: rgb(222, 255, 250);
+  background-color: rgb(235, 255, 252);
   color: rgb(0, 148, 126);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .button.is-primary.is-light:active,
 .button.is-primary.is-light.is-active {
-  background-color: rgb(210, 255, 248);
+  background-color: rgb(235, 255, 252);
   color: rgb(0, 148, 126);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -636,7 +647,7 @@ fieldset[disabled] .button.is-primary.is-inverted.is-outlined {
 
 .button.is-link:hover,
 .button.is-link.is-hovered {
-  background-color: rgb(39, 108, 218);
+  background-color: rgb(50, 115, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -649,7 +660,7 @@ fieldset[disabled] .button.is-primary.is-inverted.is-outlined {
 
 .button.is-link:active,
 .button.is-link.is-active {
-  background-color: rgb(36, 102, 209);
+  background-color: rgb(50, 115, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -668,7 +679,7 @@ fieldset[disabled] .button.is-link {
 
 .button.is-link.is-inverted:hover,
 .button.is-link.is-inverted.is-hovered {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -732,14 +743,14 @@ fieldset[disabled] .button.is-link.is-inverted.is-outlined {
 
 .button.is-link.is-light:hover,
 .button.is-link.is-light.is-hovered {
-  background-color: rgb(227, 235, 250);
+  background-color: rgb(238, 243, 252);
   color: rgb(34, 96, 196);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .button.is-link.is-light:active,
 .button.is-link.is-light.is-active {
-  background-color: rgb(216, 228, 248);
+  background-color: rgb(238, 243, 252);
   color: rgb(34, 96, 196);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -752,7 +763,7 @@ fieldset[disabled] .button.is-link.is-inverted.is-outlined {
 
 .button.is-info:hover,
 .button.is-info.is-hovered {
-  background-color: rgb(39, 147, 218);
+  background-color: rgb(50, 152, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -765,7 +776,7 @@ fieldset[disabled] .button.is-link.is-inverted.is-outlined {
 
 .button.is-info:active,
 .button.is-info.is-active {
-  background-color: rgb(36, 140, 209);
+  background-color: rgb(50, 152, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -784,7 +795,7 @@ fieldset[disabled] .button.is-info {
 
 .button.is-info.is-inverted:hover,
 .button.is-info.is-inverted.is-hovered {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -848,14 +859,14 @@ fieldset[disabled] .button.is-info.is-inverted.is-outlined {
 
 .button.is-info.is-light:hover,
 .button.is-info.is-light.is-hovered {
-  background-color: rgb(227, 240, 250);
+  background-color: rgb(238, 246, 252);
   color: rgb(29, 114, 170);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .button.is-info.is-light:active,
 .button.is-info.is-light.is-active {
-  background-color: rgb(216, 235, 248);
+  background-color: rgb(238, 246, 252);
   color: rgb(29, 114, 170);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -868,7 +879,7 @@ fieldset[disabled] .button.is-info.is-inverted.is-outlined {
 
 .button.is-success:hover,
 .button.is-success.is-hovered {
-  background-color: rgb(62, 196, 109);
+  background-color: rgb(72, 199, 116);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -881,7 +892,7 @@ fieldset[disabled] .button.is-info.is-inverted.is-outlined {
 
 .button.is-success:active,
 .button.is-success.is-active {
-  background-color: rgb(58, 188, 103);
+  background-color: rgb(72, 199, 116);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -900,7 +911,7 @@ fieldset[disabled] .button.is-success {
 
 .button.is-success.is-inverted:hover,
 .button.is-success.is-inverted.is-hovered {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -964,14 +975,14 @@ fieldset[disabled] .button.is-success.is-inverted.is-outlined {
 
 .button.is-success.is-light:hover,
 .button.is-success.is-light.is-hovered {
-  background-color: rgb(229, 247, 236);
+  background-color: rgb(239, 250, 243);
   color: rgb(37, 121, 66);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .button.is-success.is-light:active,
 .button.is-success.is-light.is-active {
-  background-color: rgb(220, 244, 228);
+  background-color: rgb(239, 250, 243);
   color: rgb(37, 121, 66);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -984,7 +995,7 @@ fieldset[disabled] .button.is-success.is-inverted.is-outlined {
 
 .button.is-warning:hover,
 .button.is-warning.is-hovered {
-  background-color: rgb(255, 218, 74);
+  background-color: rgb(255, 221, 87);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -997,7 +1008,7 @@ fieldset[disabled] .button.is-success.is-inverted.is-outlined {
 
 .button.is-warning:active,
 .button.is-warning.is-active {
-  background-color: rgb(255, 216, 62);
+  background-color: rgb(255, 221, 87);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -1080,14 +1091,14 @@ fieldset[disabled] .button.is-warning.is-inverted.is-outlined {
 
 .button.is-warning.is-light:hover,
 .button.is-warning.is-light.is-hovered {
-  background-color: rgb(255, 248, 222);
+  background-color: rgb(255, 251, 235);
   color: rgb(148, 118, 0);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .button.is-warning.is-light:active,
 .button.is-warning.is-light.is-active {
-  background-color: rgb(255, 246, 210);
+  background-color: rgb(255, 251, 235);
   color: rgb(148, 118, 0);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -1100,7 +1111,7 @@ fieldset[disabled] .button.is-warning.is-inverted.is-outlined {
 
 .button.is-danger:hover,
 .button.is-danger.is-hovered {
-  background-color: rgb(240, 58, 94);
+  background-color: rgb(241, 70, 104);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -1113,7 +1124,7 @@ fieldset[disabled] .button.is-warning.is-inverted.is-outlined {
 
 .button.is-danger:active,
 .button.is-danger.is-active {
-  background-color: rgb(239, 46, 85);
+  background-color: rgb(241, 70, 104);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -1132,7 +1143,7 @@ fieldset[disabled] .button.is-danger {
 
 .button.is-danger.is-inverted:hover,
 .button.is-danger.is-inverted.is-hovered {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -1196,14 +1207,14 @@ fieldset[disabled] .button.is-danger.is-inverted.is-outlined {
 
 .button.is-danger.is-light:hover,
 .button.is-danger.is-light.is-hovered {
-  background-color: rgb(253, 224, 230);
+  background-color: rgb(254, 236, 240);
   color: rgb(204, 15, 53);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .button.is-danger.is-light:active,
 .button.is-danger.is-light.is-active {
-  background-color: rgb(253, 212, 221);
+  background-color: rgb(254, 236, 240);
   color: rgb(204, 15, 53);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -1823,28 +1834,28 @@ fieldset[disabled] .button {
 .select select::-moz-placeholder,
 .textarea::-moz-placeholder,
 .input::-moz-placeholder {
-  color: rgba(54, 54, 54, 0.3);
+  color: rgb(54, 54, 54);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .select select::-webkit-input-placeholder,
 .textarea::-webkit-input-placeholder,
 .input::-webkit-input-placeholder {
-  color: rgba(54, 54, 54, 0.3);
+  color: rgb(54, 54, 54);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .select select:-moz-placeholder,
 .textarea:-moz-placeholder,
 .input:-moz-placeholder {
-  color: rgba(54, 54, 54, 0.3);
+  color: rgb(54, 54, 54);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .select select:-ms-input-placeholder,
 .textarea:-ms-input-placeholder,
 .input:-ms-input-placeholder {
-  color: rgba(54, 54, 54, 0.3);
+  color: rgb(54, 54, 54);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -1894,7 +1905,7 @@ fieldset[disabled] .select select::-moz-placeholder,
 .select fieldset[disabled] select::-moz-placeholder,
 fieldset[disabled] .textarea::-moz-placeholder,
 fieldset[disabled] .input::-moz-placeholder {
-  color: rgba(122, 122, 122, 0.3);
+  color: rgb(122, 122, 122);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -1905,7 +1916,7 @@ fieldset[disabled] .select select::-webkit-input-placeholder,
 .select fieldset[disabled] select::-webkit-input-placeholder,
 fieldset[disabled] .textarea::-webkit-input-placeholder,
 fieldset[disabled] .input::-webkit-input-placeholder {
-  color: rgba(122, 122, 122, 0.3);
+  color: rgb(122, 122, 122);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -1916,7 +1927,7 @@ fieldset[disabled] .select select:-moz-placeholder,
 .select fieldset[disabled] select:-moz-placeholder,
 fieldset[disabled] .textarea:-moz-placeholder,
 fieldset[disabled] .input:-moz-placeholder {
-  color: rgba(122, 122, 122, 0.3);
+  color: rgb(122, 122, 122);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -1927,7 +1938,7 @@ fieldset[disabled] .select select:-ms-input-placeholder,
 .select fieldset[disabled] select:-ms-input-placeholder,
 fieldset[disabled] .textarea:-ms-input-placeholder,
 fieldset[disabled] .input:-ms-input-placeholder {
-  color: rgba(122, 122, 122, 0.3);
+  color: rgb(122, 122, 122);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2000,7 +2011,9 @@ fieldset[disabled] .input:-ms-input-placeholder {
 [disabled].radio,
 [disabled].checkbox,
 fieldset[disabled] .radio,
-fieldset[disabled] .checkbox {
+fieldset[disabled] .checkbox,
+.radio input[disabled],
+.checkbox input[disabled] {
   color: rgb(122, 122, 122);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2033,7 +2046,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-white select:hover,
 .select.is-white select.is-hovered {
-  border-color: rgb(242, 242, 242);
+  border-color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2049,7 +2062,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-black select:hover,
 .select.is-black select.is-hovered {
-  border-color: rgb(0, 0, 0);
+  border-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2065,7 +2078,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-light select:hover,
 .select.is-light select.is-hovered {
-  border-color: rgb(232, 232, 232);
+  border-color: rgb(245, 245, 245);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2081,7 +2094,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-dark select:hover,
 .select.is-dark select.is-hovered {
-  border-color: rgb(41, 41, 41);
+  border-color: rgb(54, 54, 54);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2097,7 +2110,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-primary select:hover,
 .select.is-primary select.is-hovered {
-  border-color: rgb(0, 184, 156);
+  border-color: rgb(0, 209, 178);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2113,7 +2126,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-link select:hover,
 .select.is-link select.is-hovered {
-  border-color: rgb(36, 102, 209);
+  border-color: rgb(50, 115, 220);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2129,7 +2142,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-info select:hover,
 .select.is-info select.is-hovered {
-  border-color: rgb(36, 140, 209);
+  border-color: rgb(50, 152, 220);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2145,7 +2158,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-success select:hover,
 .select.is-success select.is-hovered {
-  border-color: rgb(58, 188, 103);
+  border-color: rgb(72, 199, 116);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2161,7 +2174,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-warning select:hover,
 .select.is-warning select.is-hovered {
-  border-color: rgb(255, 216, 62);
+  border-color: rgb(255, 221, 87);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2177,7 +2190,7 @@ fieldset[disabled] .select select:hover {
 
 .select.is-danger select:hover,
 .select.is-danger select.is-hovered {
-  border-color: rgb(239, 46, 85);
+  border-color: rgb(241, 70, 104);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2194,7 +2207,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-white:hover .file-cta,
 .file.is-white.is-hovered .file-cta {
-  background-color: rgb(249, 249, 249);
+  background-color: rgb(255, 255, 255);
   color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2207,7 +2220,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-white:active .file-cta,
 .file.is-white.is-active .file-cta {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2220,7 +2233,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-black:hover .file-cta,
 .file.is-black.is-hovered .file-cta {
-  background-color: rgb(4, 4, 4);
+  background-color: rgb(10, 10, 10);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2233,7 +2246,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-black:active .file-cta,
 .file.is-black.is-active .file-cta {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(10, 10, 10);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2246,7 +2259,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-light:hover .file-cta,
 .file.is-light.is-hovered .file-cta {
-  background-color: rgb(239, 239, 239);
+  background-color: rgb(245, 245, 245);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2259,7 +2272,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-light:active .file-cta,
 .file.is-light.is-active .file-cta {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(245, 245, 245);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2272,7 +2285,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-dark:hover .file-cta,
 .file.is-dark.is-hovered .file-cta {
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(54, 54, 54);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2285,7 +2298,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-dark:active .file-cta,
 .file.is-dark.is-active .file-cta {
-  background-color: rgb(41, 41, 41);
+  background-color: rgb(54, 54, 54);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2298,7 +2311,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-primary:hover .file-cta,
 .file.is-primary.is-hovered .file-cta {
-  background-color: rgb(0, 196, 167);
+  background-color: rgb(0, 209, 178);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2311,7 +2324,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-primary:active .file-cta,
 .file.is-primary.is-active .file-cta {
-  background-color: rgb(0, 184, 156);
+  background-color: rgb(0, 209, 178);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2324,7 +2337,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-link:hover .file-cta,
 .file.is-link.is-hovered .file-cta {
-  background-color: rgb(39, 108, 218);
+  background-color: rgb(50, 115, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2337,7 +2350,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-link:active .file-cta,
 .file.is-link.is-active .file-cta {
-  background-color: rgb(36, 102, 209);
+  background-color: rgb(50, 115, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2350,7 +2363,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-info:hover .file-cta,
 .file.is-info.is-hovered .file-cta {
-  background-color: rgb(39, 147, 218);
+  background-color: rgb(50, 152, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2363,7 +2376,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-info:active .file-cta,
 .file.is-info.is-active .file-cta {
-  background-color: rgb(36, 140, 209);
+  background-color: rgb(50, 152, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2376,7 +2389,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-success:hover .file-cta,
 .file.is-success.is-hovered .file-cta {
-  background-color: rgb(62, 196, 109);
+  background-color: rgb(72, 199, 116);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2389,7 +2402,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-success:active .file-cta,
 .file.is-success.is-active .file-cta {
-  background-color: rgb(58, 188, 103);
+  background-color: rgb(72, 199, 116);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2402,7 +2415,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-warning:hover .file-cta,
 .file.is-warning.is-hovered .file-cta {
-  background-color: rgb(255, 218, 74);
+  background-color: rgb(255, 221, 87);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2415,7 +2428,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-warning:active .file-cta,
 .file.is-warning.is-active .file-cta {
-  background-color: rgb(255, 216, 62);
+  background-color: rgb(255, 221, 87);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2428,7 +2441,7 @@ fieldset[disabled] .select select:hover {
 
 .file.is-danger:hover .file-cta,
 .file.is-danger.is-hovered .file-cta {
-  background-color: rgb(240, 58, 94);
+  background-color: rgb(241, 70, 104);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2441,30 +2454,30 @@ fieldset[disabled] .select select:hover {
 
 .file.is-danger:active .file-cta,
 .file.is-danger.is-active .file-cta {
-  background-color: rgb(239, 46, 85);
+  background-color: rgb(241, 70, 104);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .file-label:hover .file-cta {
-  background-color: rgb(239, 239, 239);
+  background-color: rgb(245, 245, 245);
   color: rgb(54, 54, 54);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .file-label:hover .file-name {
-  border-color: rgb(213, 213, 213);
+  border-color: rgb(219, 219, 219);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .file-label:active .file-cta {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(245, 245, 245);
   color: rgb(54, 54, 54);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .file-label:active .file-name {
-  border-color: rgb(206, 206, 206);
+  border-color: rgb(219, 219, 219);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2826,7 +2839,7 @@ button.dropdown-item.is-active {
 }
 
 .modal-background {
-  background-color: rgba(10, 10, 10, 0.86);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -2869,7 +2882,7 @@ button.dropdown-item.is-active {
 .navbar.is-white .navbar-brand .navbar-link:focus,
 .navbar.is-white .navbar-brand .navbar-link:hover,
 .navbar.is-white .navbar-brand .navbar-link.is-active {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2905,7 +2918,7 @@ button.dropdown-item.is-active {
   .navbar.is-white .navbar-end .navbar-link:focus,
   .navbar.is-white .navbar-end .navbar-link:hover,
   .navbar.is-white .navbar-end .navbar-link.is-active {
-    background-color: rgb(242, 242, 242);
+    background-color: rgb(255, 255, 255);
     color: rgb(10, 10, 10);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -2919,7 +2932,7 @@ button.dropdown-item.is-active {
   .navbar.is-white .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-white .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-white .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(242, 242, 242);
+    background-color: rgb(255, 255, 255);
     color: rgb(10, 10, 10);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -2949,7 +2962,7 @@ button.dropdown-item.is-active {
 .navbar.is-black .navbar-brand .navbar-link:focus,
 .navbar.is-black .navbar-brand .navbar-link:hover,
 .navbar.is-black .navbar-brand .navbar-link.is-active {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(10, 10, 10);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -2985,7 +2998,7 @@ button.dropdown-item.is-active {
   .navbar.is-black .navbar-end .navbar-link:focus,
   .navbar.is-black .navbar-end .navbar-link:hover,
   .navbar.is-black .navbar-end .navbar-link.is-active {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(10, 10, 10);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -2999,7 +3012,7 @@ button.dropdown-item.is-active {
   .navbar.is-black .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-black .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-black .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(10, 10, 10);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3029,7 +3042,7 @@ button.dropdown-item.is-active {
 .navbar.is-light .navbar-brand .navbar-link:focus,
 .navbar.is-light .navbar-brand .navbar-link:hover,
 .navbar.is-light .navbar-brand .navbar-link.is-active {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(245, 245, 245);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -3065,7 +3078,7 @@ button.dropdown-item.is-active {
   .navbar.is-light .navbar-end .navbar-link:focus,
   .navbar.is-light .navbar-end .navbar-link:hover,
   .navbar.is-light .navbar-end .navbar-link.is-active {
-    background-color: rgb(232, 232, 232);
+    background-color: rgb(245, 245, 245);
     color: rgba(0, 0, 0, 0.7);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3079,7 +3092,7 @@ button.dropdown-item.is-active {
   .navbar.is-light .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-light .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-light .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(232, 232, 232);
+    background-color: rgb(245, 245, 245);
     color: rgba(0, 0, 0, 0.7);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3109,7 +3122,7 @@ button.dropdown-item.is-active {
 .navbar.is-dark .navbar-brand .navbar-link:focus,
 .navbar.is-dark .navbar-brand .navbar-link:hover,
 .navbar.is-dark .navbar-brand .navbar-link.is-active {
-  background-color: rgb(41, 41, 41);
+  background-color: rgb(54, 54, 54);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -3145,7 +3158,7 @@ button.dropdown-item.is-active {
   .navbar.is-dark .navbar-end .navbar-link:focus,
   .navbar.is-dark .navbar-end .navbar-link:hover,
   .navbar.is-dark .navbar-end .navbar-link.is-active {
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(54, 54, 54);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3159,7 +3172,7 @@ button.dropdown-item.is-active {
   .navbar.is-dark .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-dark .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-dark .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(54, 54, 54);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3189,7 +3202,7 @@ button.dropdown-item.is-active {
 .navbar.is-primary .navbar-brand .navbar-link:focus,
 .navbar.is-primary .navbar-brand .navbar-link:hover,
 .navbar.is-primary .navbar-brand .navbar-link.is-active {
-  background-color: rgb(0, 184, 156);
+  background-color: rgb(0, 209, 178);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -3225,7 +3238,7 @@ button.dropdown-item.is-active {
   .navbar.is-primary .navbar-end .navbar-link:focus,
   .navbar.is-primary .navbar-end .navbar-link:hover,
   .navbar.is-primary .navbar-end .navbar-link.is-active {
-    background-color: rgb(0, 184, 156);
+    background-color: rgb(0, 209, 178);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3239,7 +3252,7 @@ button.dropdown-item.is-active {
   .navbar.is-primary .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-primary .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-primary .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(0, 184, 156);
+    background-color: rgb(0, 209, 178);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3269,7 +3282,7 @@ button.dropdown-item.is-active {
 .navbar.is-link .navbar-brand .navbar-link:focus,
 .navbar.is-link .navbar-brand .navbar-link:hover,
 .navbar.is-link .navbar-brand .navbar-link.is-active {
-  background-color: rgb(36, 102, 209);
+  background-color: rgb(50, 115, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -3305,7 +3318,7 @@ button.dropdown-item.is-active {
   .navbar.is-link .navbar-end .navbar-link:focus,
   .navbar.is-link .navbar-end .navbar-link:hover,
   .navbar.is-link .navbar-end .navbar-link.is-active {
-    background-color: rgb(36, 102, 209);
+    background-color: rgb(50, 115, 220);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3319,7 +3332,7 @@ button.dropdown-item.is-active {
   .navbar.is-link .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-link .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-link .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(36, 102, 209);
+    background-color: rgb(50, 115, 220);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3349,7 +3362,7 @@ button.dropdown-item.is-active {
 .navbar.is-info .navbar-brand .navbar-link:focus,
 .navbar.is-info .navbar-brand .navbar-link:hover,
 .navbar.is-info .navbar-brand .navbar-link.is-active {
-  background-color: rgb(36, 140, 209);
+  background-color: rgb(50, 152, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -3385,7 +3398,7 @@ button.dropdown-item.is-active {
   .navbar.is-info .navbar-end .navbar-link:focus,
   .navbar.is-info .navbar-end .navbar-link:hover,
   .navbar.is-info .navbar-end .navbar-link.is-active {
-    background-color: rgb(36, 140, 209);
+    background-color: rgb(50, 152, 220);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3399,7 +3412,7 @@ button.dropdown-item.is-active {
   .navbar.is-info .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-info .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-info .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(36, 140, 209);
+    background-color: rgb(50, 152, 220);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3429,7 +3442,7 @@ button.dropdown-item.is-active {
 .navbar.is-success .navbar-brand .navbar-link:focus,
 .navbar.is-success .navbar-brand .navbar-link:hover,
 .navbar.is-success .navbar-brand .navbar-link.is-active {
-  background-color: rgb(58, 188, 103);
+  background-color: rgb(72, 199, 116);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -3465,7 +3478,7 @@ button.dropdown-item.is-active {
   .navbar.is-success .navbar-end .navbar-link:focus,
   .navbar.is-success .navbar-end .navbar-link:hover,
   .navbar.is-success .navbar-end .navbar-link.is-active {
-    background-color: rgb(58, 188, 103);
+    background-color: rgb(72, 199, 116);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3479,7 +3492,7 @@ button.dropdown-item.is-active {
   .navbar.is-success .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-success .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-success .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(58, 188, 103);
+    background-color: rgb(72, 199, 116);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3509,7 +3522,7 @@ button.dropdown-item.is-active {
 .navbar.is-warning .navbar-brand .navbar-link:focus,
 .navbar.is-warning .navbar-brand .navbar-link:hover,
 .navbar.is-warning .navbar-brand .navbar-link.is-active {
-  background-color: rgb(255, 216, 62);
+  background-color: rgb(255, 221, 87);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -3545,7 +3558,7 @@ button.dropdown-item.is-active {
   .navbar.is-warning .navbar-end .navbar-link:focus,
   .navbar.is-warning .navbar-end .navbar-link:hover,
   .navbar.is-warning .navbar-end .navbar-link.is-active {
-    background-color: rgb(255, 216, 62);
+    background-color: rgb(255, 221, 87);
     color: rgba(0, 0, 0, 0.7);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3559,7 +3572,7 @@ button.dropdown-item.is-active {
   .navbar.is-warning .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-warning .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-warning .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(255, 216, 62);
+    background-color: rgb(255, 221, 87);
     color: rgba(0, 0, 0, 0.7);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3589,7 +3602,7 @@ button.dropdown-item.is-active {
 .navbar.is-danger .navbar-brand .navbar-link:focus,
 .navbar.is-danger .navbar-brand .navbar-link:hover,
 .navbar.is-danger .navbar-brand .navbar-link.is-active {
-  background-color: rgb(239, 46, 85);
+  background-color: rgb(241, 70, 104);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -3625,7 +3638,7 @@ button.dropdown-item.is-active {
   .navbar.is-danger .navbar-end .navbar-link:focus,
   .navbar.is-danger .navbar-end .navbar-link:hover,
   .navbar.is-danger .navbar-end .navbar-link.is-active {
-    background-color: rgb(239, 46, 85);
+    background-color: rgb(241, 70, 104);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -3639,7 +3652,7 @@ button.dropdown-item.is-active {
   .navbar.is-danger .navbar-item.has-dropdown:focus .navbar-link,
   .navbar.is-danger .navbar-item.has-dropdown:hover .navbar-link,
   .navbar.is-danger .navbar-item.has-dropdown.is-active .navbar-link {
-    background-color: rgb(239, 46, 85);
+    background-color: rgb(241, 70, 104);
     color: rgb(255, 255, 255);
     transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
@@ -4068,7 +4081,7 @@ label.panel-block:hover {
 }
 
 .hero.is-white .subtitle {
-  color: rgba(10, 10, 10, 0.9);
+  color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4087,7 +4100,7 @@ label.panel-block:hover {
 
 .hero.is-white .navbar-item,
 .hero.is-white .navbar-link {
-  color: rgba(10, 10, 10, 0.7);
+  color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4095,7 +4108,7 @@ label.panel-block:hover {
 .hero.is-white a.navbar-item.is-active,
 .hero.is-white .navbar-link:hover,
 .hero.is-white .navbar-link.is-active {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
   color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4113,7 +4126,7 @@ label.panel-block:hover {
 
 .hero.is-white .tabs.is-boxed a:hover,
 .hero.is-white .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4139,7 +4152,7 @@ label.panel-block:hover {
 }
 
 .hero.is-black .subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4158,7 +4171,7 @@ label.panel-block:hover {
 
 .hero.is-black .navbar-item,
 .hero.is-black .navbar-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4166,7 +4179,7 @@ label.panel-block:hover {
 .hero.is-black a.navbar-item.is-active,
 .hero.is-black .navbar-link:hover,
 .hero.is-black .navbar-link.is-active {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(10, 10, 10);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4184,7 +4197,7 @@ label.panel-block:hover {
 
 .hero.is-black .tabs.is-boxed a:hover,
 .hero.is-black .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4210,7 +4223,7 @@ label.panel-block:hover {
 }
 
 .hero.is-light .subtitle {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4237,7 +4250,7 @@ label.panel-block:hover {
 .hero.is-light a.navbar-item.is-active,
 .hero.is-light .navbar-link:hover,
 .hero.is-light .navbar-link.is-active {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(245, 245, 245);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4255,7 +4268,7 @@ label.panel-block:hover {
 
 .hero.is-light .tabs.is-boxed a:hover,
 .hero.is-light .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4281,7 +4294,7 @@ label.panel-block:hover {
 }
 
 .hero.is-dark .subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4300,7 +4313,7 @@ label.panel-block:hover {
 
 .hero.is-dark .navbar-item,
 .hero.is-dark .navbar-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4308,7 +4321,7 @@ label.panel-block:hover {
 .hero.is-dark a.navbar-item.is-active,
 .hero.is-dark .navbar-link:hover,
 .hero.is-dark .navbar-link.is-active {
-  background-color: rgb(41, 41, 41);
+  background-color: rgb(54, 54, 54);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4326,7 +4339,7 @@ label.panel-block:hover {
 
 .hero.is-dark .tabs.is-boxed a:hover,
 .hero.is-dark .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4352,7 +4365,7 @@ label.panel-block:hover {
 }
 
 .hero.is-primary .subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4371,7 +4384,7 @@ label.panel-block:hover {
 
 .hero.is-primary .navbar-item,
 .hero.is-primary .navbar-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4379,7 +4392,7 @@ label.panel-block:hover {
 .hero.is-primary a.navbar-item.is-active,
 .hero.is-primary .navbar-link:hover,
 .hero.is-primary .navbar-link.is-active {
-  background-color: rgb(0, 184, 156);
+  background-color: rgb(0, 209, 178);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4397,7 +4410,7 @@ label.panel-block:hover {
 
 .hero.is-primary .tabs.is-boxed a:hover,
 .hero.is-primary .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4423,7 +4436,7 @@ label.panel-block:hover {
 }
 
 .hero.is-link .subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4442,7 +4455,7 @@ label.panel-block:hover {
 
 .hero.is-link .navbar-item,
 .hero.is-link .navbar-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4450,7 +4463,7 @@ label.panel-block:hover {
 .hero.is-link a.navbar-item.is-active,
 .hero.is-link .navbar-link:hover,
 .hero.is-link .navbar-link.is-active {
-  background-color: rgb(36, 102, 209);
+  background-color: rgb(50, 115, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4468,7 +4481,7 @@ label.panel-block:hover {
 
 .hero.is-link .tabs.is-boxed a:hover,
 .hero.is-link .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4494,7 +4507,7 @@ label.panel-block:hover {
 }
 
 .hero.is-info .subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4513,7 +4526,7 @@ label.panel-block:hover {
 
 .hero.is-info .navbar-item,
 .hero.is-info .navbar-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4521,7 +4534,7 @@ label.panel-block:hover {
 .hero.is-info a.navbar-item.is-active,
 .hero.is-info .navbar-link:hover,
 .hero.is-info .navbar-link.is-active {
-  background-color: rgb(36, 140, 209);
+  background-color: rgb(50, 152, 220);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4539,7 +4552,7 @@ label.panel-block:hover {
 
 .hero.is-info .tabs.is-boxed a:hover,
 .hero.is-info .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4565,7 +4578,7 @@ label.panel-block:hover {
 }
 
 .hero.is-success .subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4584,7 +4597,7 @@ label.panel-block:hover {
 
 .hero.is-success .navbar-item,
 .hero.is-success .navbar-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4592,7 +4605,7 @@ label.panel-block:hover {
 .hero.is-success a.navbar-item.is-active,
 .hero.is-success .navbar-link:hover,
 .hero.is-success .navbar-link.is-active {
-  background-color: rgb(58, 188, 103);
+  background-color: rgb(72, 199, 116);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4610,7 +4623,7 @@ label.panel-block:hover {
 
 .hero.is-success .tabs.is-boxed a:hover,
 .hero.is-success .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4636,7 +4649,7 @@ label.panel-block:hover {
 }
 
 .hero.is-warning .subtitle {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4663,7 +4676,7 @@ label.panel-block:hover {
 .hero.is-warning a.navbar-item.is-active,
 .hero.is-warning .navbar-link:hover,
 .hero.is-warning .navbar-link.is-active {
-  background-color: rgb(255, 216, 62);
+  background-color: rgb(255, 221, 87);
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4681,7 +4694,7 @@ label.panel-block:hover {
 
 .hero.is-warning .tabs.is-boxed a:hover,
 .hero.is-warning .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4707,7 +4720,7 @@ label.panel-block:hover {
 }
 
 .hero.is-danger .subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4726,7 +4739,7 @@ label.panel-block:hover {
 
 .hero.is-danger .navbar-item,
 .hero.is-danger .navbar-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
@@ -4734,7 +4747,7 @@ label.panel-block:hover {
 .hero.is-danger a.navbar-item.is-active,
 .hero.is-danger .navbar-link:hover,
 .hero.is-danger .navbar-link.is-active {
-  background-color: rgb(239, 46, 85);
+  background-color: rgb(241, 70, 104);
   color: rgb(255, 255, 255);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
@@ -4752,7 +4765,7 @@ label.panel-block:hover {
 
 .hero.is-danger .tabs.is-boxed a:hover,
 .hero.is-danger .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgb(10, 10, 10);
   transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 

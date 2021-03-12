@@ -128,7 +128,7 @@ The class doing this should also be included into your application. Whenever you
 This way you can keep using the full bulma color richness. Try out the demo and see how the font of the buttons changes on dark / bright colors!
 
 ## Direct Web Setup
-If you do not use any bundler or web framework, you can also include bulma-css-vars directly. You will still require Node.js.
+If you do not use any bundler or web framework, you can also include bulma-css-vars directly. You will still require Node.js and sass.
 
 ```sass
 // app.sass

@@ -165,8 +165,8 @@ export type ColorFn =
 
 export interface ColorFnCall {
   fn: ColorFn
-  fnArg: string
-  composeArg?: ColorFnCall
+  fnArg: string | null
+  composeArg: ColorFnCall | null
 }
 
 export interface ColorCallSet {

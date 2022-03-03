@@ -1,4 +1,4 @@
-const { hsl } = require('bulma-css-vars')
+import { hsl } from 'bulma-css-vars'
 
 const appColors = {
   black: hsl(0, 0, 4),
@@ -30,7 +30,7 @@ appColors['scheme-main'] = appColors['white']
 appColors['text'] = appColors['grey-dark']
 appColors['text-strong'] = appColors['grey-darker']
 
-module.exports = {
+export default {
   sassEntryFile: './src/main.scss',
   jsOutputFile: './src/bulma-generated/bulma-colors.js',
   sassOutputFile: './src/bulma-generated/generated-vars.sass',

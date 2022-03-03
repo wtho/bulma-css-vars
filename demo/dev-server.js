@@ -5,28 +5,28 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = 'development'
 }
 
-const path = require('path')
-const express = require('express')
-const webpack = require('webpack')
-const webpackConfig = require('./webpack.dev')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import path from 'path'
+import express from 'express'
+import webpack from 'webpack'
+import webpackConfig from './webpack.dev'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 // default port where dev server listens for incoming traffic
-var port = process.env.PORT || 8080
+const port = process.env.PORT || 8080
 
-var app = express()
-var compiler = webpack(webpackConfig)
+const app = express()
+const compiler = webpack(webpackConfig)
 
-var devMiddleware = require('webpack-dev-middleware')(compiler, {
+const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: publicPath,
 })
 
-var hotMiddleware = require('webpack-hot-middleware')(compiler, {
+const hotMiddleware = require('webpack-hot-middleware')(compiler, {
   log: () => {},
 })
 // force page reload when html-webpack-plugin template changes
 let lastHtml = ''
-compiler.hooks.compilation.tap('CustomReloadDevServer', compilation => {
+compiler.hooks.compilation.tap('CustomReloadDevServer', (compilation) => {
   HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
     'CustomReloadDevServer', // <-- Set a meaningful name here for stacktraces
     (data, cb) => {
@@ -51,13 +51,13 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // serve pure static assets
-var staticPath = path.posix.join(publicPath, staticFolder)
+const staticPath = path.posix.join(publicPath, staticFolder)
 app.use(staticPath, express.static('./assets'))
 
-var uri = 'http://localhost:' + port
+const uri = 'http://localhost:' + port
 
-var _resolve
-var readyPromise = new Promise(resolve => {
+const _resolve
+const readyPromise = new Promise((resolve) => {
   _resolve = resolve
 })
 
@@ -70,7 +70,7 @@ devMiddleware.waitUntilValid(() => {
 
 var server = app.listen(port)
 
-module.exports = {
+export default {
   ready: readyPromise,
   close: () => {
     server.close()

@@ -1,239 +1,238 @@
-
-module.exports = {
-  "bulmaCssVariablesDefs": {
-    "black": {
-      "calls": [
+export default colors = {
+  bulmaCssVariablesDefs: {
+    black: {
+      calls: [
         {
-          "fn": "rgba",
-          "fnArg": "10",
-          "composeArg": null
+          fn: 'rgba',
+          fnArg: '10',
+          composeArg: null,
         },
         {
-          "fn": "rgba",
-          "fnArg": "2",
-          "composeArg": null
+          fn: 'rgba',
+          fnArg: '2',
+          composeArg: null,
         },
         {
-          "fn": "rgba",
-          "fnArg": "20",
-          "composeArg": null
+          fn: 'rgba',
+          fnArg: '20',
+          composeArg: null,
         },
         {
-          "fn": "rgba",
-          "fnArg": "5",
-          "composeArg": null
+          fn: 'rgba',
+          fnArg: '5',
+          composeArg: null,
         },
         {
-          "fn": "lighten",
-          "fnArg": "800",
-          "composeArg": null
-        }
-      ]
+          fn: 'lighten',
+          fnArg: '800',
+          composeArg: null,
+        },
+      ],
     },
-    "black-bis": {
-      "calls": []
+    'black-bis': {
+      calls: [],
     },
-    "black-ter": {
-      "calls": []
+    'black-ter': {
+      calls: [],
     },
-    "blue": {
-      "calls": [
+    blue: {
+      calls: [
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "dark-color",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'dark-color',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "light-color",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
+          fn: 'light-color',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
     },
-    "cyan": {
-      "calls": [
+    cyan: {
+      calls: [
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "dark-color",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'dark-color',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "light-color",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
+          fn: 'light-color',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
     },
-    "green": {
-      "calls": [
+    green: {
+      calls: [
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "dark-color",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'dark-color',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "light-color",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
+          fn: 'light-color',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
     },
-    "grey": {
-      "calls": []
+    grey: {
+      calls: [],
     },
-    "grey-dark": {
-      "calls": []
+    'grey-dark': {
+      calls: [],
     },
-    "grey-darker": {
-      "calls": [
+    'grey-darker': {
+      calls: [
         {
-          "fn": "lighten",
-          "fnArg": "800",
-          "composeArg": null
+          fn: 'lighten',
+          fnArg: '800',
+          composeArg: null,
         },
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
     },
-    "grey-light": {
-      "calls": []
+    'grey-light': {
+      calls: [],
     },
-    "grey-lighter": {
-      "calls": []
+    'grey-lighter': {
+      calls: [],
     },
-    "grey-lightest": {
-      "calls": []
+    'grey-lightest': {
+      calls: [],
     },
-    "red": {
-      "calls": [
+    red: {
+      calls: [
         {
-          "fn": "darken",
-          "fnArg": "1500",
-          "composeArg": null
+          fn: 'darken',
+          fnArg: '1500',
+          composeArg: null,
         },
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "dark-color",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'dark-color',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "light-color",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
+          fn: 'light-color',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
     },
-    "scheme-main": {
-      "calls": []
+    'scheme-main': {
+      calls: [],
     },
-    "text": {
-      "calls": [
+    text: {
+      calls: [
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
     },
-    "text-strong": {
-      "calls": []
+    'text-strong': {
+      calls: [],
     },
-    "turquoise": {
-      "calls": [
+    turquoise: {
+      calls: [
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "dark-color",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'dark-color',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "light-color",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
+          fn: 'light-color',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
     },
-    "white": {
-      "calls": [
+    white: {
+      calls: [
         {
-          "fn": "lighten",
-          "fnArg": "800",
-          "composeArg": null
-        }
-      ]
+          fn: 'lighten',
+          fnArg: '800',
+          composeArg: null,
+        },
+      ],
     },
-    "white-bis": {
-      "calls": []
+    'white-bis': {
+      calls: [],
     },
-    "white-ter": {
-      "calls": [
+    'white-ter': {
+      calls: [
         {
-          "fn": "darken",
-          "fnArg": "1000",
-          "composeArg": null
+          fn: 'darken',
+          fnArg: '1000',
+          composeArg: null,
         },
         {
-          "fn": "darken",
-          "fnArg": "500",
-          "composeArg": null
+          fn: 'darken',
+          fnArg: '500',
+          composeArg: null,
         },
         {
-          "fn": "lighten",
-          "fnArg": "800",
-          "composeArg": null
+          fn: 'lighten',
+          fnArg: '800',
+          composeArg: null,
         },
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
     },
-    "yellow": {
-      "calls": [
+    yellow: {
+      calls: [
         {
-          "fn": "color-invert",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'color-invert',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "dark-color",
-          "fnArg": null,
-          "composeArg": null
+          fn: 'dark-color',
+          fnArg: null,
+          composeArg: null,
         },
         {
-          "fn": "light-color",
-          "fnArg": null,
-          "composeArg": null
-        }
-      ]
-    }
-  }
+          fn: 'light-color',
+          fnArg: null,
+          composeArg: null,
+        },
+      ],
+    },
+  },
 }

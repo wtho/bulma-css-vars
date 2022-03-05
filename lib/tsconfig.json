@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "outDir": "./dist",
-    "declarationDir": "./dist",
+    "outDir": "./dist/cjs",
+    "declarationDir": "./dist/types",
     "declaration": true,
     "module": "commonjs",
     "moduleResolution": "node",

@@ -11,7 +11,7 @@ import {
   writeFile,
 } from './fs-helper'
 import { getCssFallbacks } from './css-post-processor'
-import { renderSass } from './render-sass'
+import { compileSass } from './compile-sass'
 
 const configFileName = 'bulma-css-vars.config.js'
 const mainSassFileName = 'src/main.scss'
@@ -116,7 +116,7 @@ export async function runCli(cwd: string) {
   }
 
   // render sass
-  const renderedCss = renderSass(sassEntryFile)
+  const renderedCss = compileSass(sassEntryFile)
 
   // run find-used-vars to get used vars
   const colorNames = Object.keys(colorDefs)

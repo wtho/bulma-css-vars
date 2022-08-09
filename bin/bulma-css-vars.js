@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { runCli, runCliInit } = require('../dist/cli.js')
+const { runCli, runCliInit } = require('../lib/cli.js')
 
 const cwd = process.cwd()
 

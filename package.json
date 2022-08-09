@@ -7,33 +7,9 @@
     "bulma.io",
     "CSS Variables"
   ],
-  "main": "./dist/cjs/index.js",
-  "browser": "./dist/esm/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/types/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
-    },
-    "./*": {
-      "import": "./dist/esm/*.js",
-      "require": "./dist/cjs/*.js"
-    }
-  },
-  "files": [
-    "/dist",
-    "/bin",
-    "/*.sass"
-  ],
+  "main": "./lib/index.js",
   "bin": {
     "bulma-css-vars": "bin/bulma-css-vars.js"
-  },
-  "scripts": {
-    "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && webpack",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run test && npm run build && cp ../README.md .",
-    "test": "jest"
   },
   "author": "Thomas Wirth <thomas@wtho.de>",
   "repository": {

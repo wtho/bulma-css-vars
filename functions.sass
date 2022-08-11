@@ -237,18 +237,12 @@
   @return $text-strong
 
 @function bulmaRgba($color, $alpha)
-  @if type-of($color) != 'color'
-    @return $color
   @return rgba($color, $alpha)
 
 @function bulmaDarken($color, $amount)
-  @if type-of($color) != 'color'
-    @return $color
   @return darken($color, $amount)
 
 @function bulmaLighten($color, $amount)
-  @if type-of($color) != 'color'
-    @return $color
   @return lighten($color, $amount)
 
   // Custom divide function by @mdo from https://github.com/twbs/bootstrap/pull/34245

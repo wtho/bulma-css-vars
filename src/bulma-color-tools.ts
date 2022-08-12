@@ -194,4 +194,9 @@ export const bulmaColorTools = {
     const changeLum = Math.max(baseLum, targetLum)
     return color.lightness(changeLum).rgb().toString()
   },
+  transparentize(col: string, perc: string) {
+    const color = Color(col)
+    const percAsNumber = Number(perc) / 100
+    return color.alpha(percAsNumber).toString()
+  },
 }

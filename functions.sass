@@ -183,6 +183,15 @@
   // as the variable $white is usually bright, we return a high default value
   @return 90%
 
+@function transparentize($col, $perc)
+  @if type-of($col) == 'color'
+    @return color.adjust($col, $alpha: $perc * -1)
+  @else
+    $color: unwrap($col)
+    $perccalc: #{$perc * 100}
+    $num: str-slice(quote($perccalc), 0, -2) // remove '%'
+    @return wrap(#{$color}--#{$num}--transparentize)
+
 // TODO: fix colorLuminance and lightness calls
 // outside functions (both in message.sass)!
 

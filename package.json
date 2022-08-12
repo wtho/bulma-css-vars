@@ -22,7 +22,7 @@
   },
   "scripts": {
     "postinstall": "node postinstall.js",
-    "uninstall": "node uninstall.js"
+    "preuninstall": "node uninstall.js"
   },
   "dependencies": {
     "color": "^4.2.1",

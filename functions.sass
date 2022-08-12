@@ -183,15 +183,6 @@
   // as the variable $white is usually bright, we return a high default value
   @return 90%
 
-@function transparentize($col, $perc)
-  @if type-of($col) == 'color'
-    @return color.adjust($col, $alpha: $perc * -1)
-  @else
-    $color: unwrap($col)
-    $perccalc: #{$perc * 100}
-    $num: str-slice(quote($perccalc), 0, -2) // remove '%'
-    @return wrap(#{$color}--#{$num}--transparentize)
-
 // TODO: fix colorLuminance and lightness calls
 // outside functions (both in message.sass)!
 
@@ -237,12 +228,18 @@
   @return $text-strong
 
 @function bulmaRgba($color, $alpha)
+  @if type-of($color) != 'color'
+    @return $color
   @return rgba($color, $alpha)
 
 @function bulmaDarken($color, $amount)
+  @if type-of($color) != 'color'
+    @return $color
   @return darken($color, $amount)
 
 @function bulmaLighten($color, $amount)
+  @if type-of($color) != 'color'
+    @return $color
   @return lighten($color, $amount)
 
   // Custom divide function by @mdo from https://github.com/twbs/bootstrap/pull/34245

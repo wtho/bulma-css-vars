@@ -1,62 +1,70 @@
-'use strict'
-Object.defineProperty(exports, '__esModule', { value: true })
-exports.ColorGenerator = exports.ColorUpdater = void 0
-const bulma_color_tools_1 = require('./bulma-color-tools')
-class ColorUpdater {
-  constructor(colorVals) {
-    this.colorVals = colorVals
-  }
-  getBaseVarNames() {
+import {
+  bulmaColorTools,
+  getNameValFromColorDef,
+  stringToHsl,
+  strValFromColorDef,
+} from './bulma-color-tools'
+import { ColorFn, ColorFnCall, ColorCallSet, NameValueColor } from './types'
+
+export class ColorUpdater {
+  constructor(protected colorVals: ColorCallSet) {}
+
+  protected getBaseVarNames() {
     return Object.keys(this.colorVals)
   }
-  getBaseVars() {
+  protected getBaseVars() {
     return Object.entries(this.colorVals).map(([name, { value: hsl }]) =>
-      (0, bulma_color_tools_1.getNameValFromColorDef)(name, hsl)
+      getNameValFromColorDef(name, hsl)
     )
   }
-  getDerivedVars() {
+  protected getDerivedVars() {
     return Object.entries(this.colorVals)
       .filter(([_base, { calls }]) => calls.length)
       .map(([base, { calls }]) => {
         return calls.map((call) => this.callToNameVal(base, call))
       })
   }
-  getUpdatedVars(colorName, colorVal) {
+  getUpdatedVars(colorName: string, colorVal: string) {
     if (!(colorName in this.colorVals)) {
       console.warn(`Color '${colorName}' was not configured in bulma-css-vars!`)
       return []
     }
-    const value = (0, bulma_color_tools_1.stringToHsl)(colorVal)
+    const value = stringToHsl(colorVal)
     this.colorVals[colorName].value = value
     const calls =
       (this.colorVals[colorName] && this.colorVals[colorName].calls) || []
     return [
-      (0, bulma_color_tools_1.getNameValFromColorDef)(colorName, value),
+      getNameValFromColorDef(colorName, value),
       ...calls.map((call) => this.callToNameVal(colorName, call)),
     ]
   }
-  updateVarsInDocument(colorName, colorVal) {
+
+  updateVarsInDocument(colorName: string, colorVal: string) {
     const updateds = this.getUpdatedVars(colorName, colorVal)
     updateds.forEach(({ name, value }) =>
       document.documentElement.style.setProperty(name, value)
     )
   }
-  callToNameVal(base, call) {
+
+  protected callToNameVal(base: string, call: ColorFnCall) {
     const name = `--${base}${this.createDerivedVarName(call)}`
     const value = this.createDerivedVariable(base, call)
     return { name, value }
   }
-  createDerivedVariable(baseColorName, call) {
+
+  protected createDerivedVariable(baseColorName: string, call: ColorFnCall) {
     if (!(baseColorName in this.colorVals)) {
       throw Error(
         `Color '${baseColorName}' is not defined! Cannot derive required colors!`
       )
     }
-    function getEvaluatedColorFromFnCall(fnName, fnArg, colorArg, compose) {
-      const evaluated = bulma_color_tools_1.bulmaColorTools[fnName](
-        colorArg,
-        fnArg
-      )
+    function getEvaluatedColorFromFnCall(
+      fnName: ColorFn,
+      fnArg: string,
+      colorArg: string,
+      compose?: ColorFnCall
+    ): string {
+      const evaluated = bulmaColorTools[fnName](colorArg, fnArg)
       if (!compose) {
         return evaluated
       }
@@ -67,11 +75,9 @@ class ColorUpdater {
         compose.composeArg
       )
     }
+
     const colorVal = this.colorVals[baseColorName].value
-    const baseColor = (0, bulma_color_tools_1.strValFromColorDef)(
-      colorVal,
-      baseColorName
-    )
+    const baseColor = strValFromColorDef(colorVal, baseColorName)
     return getEvaluatedColorFromFnCall(
       call.fn,
       call.fnArg,
@@ -79,8 +85,13 @@ class ColorUpdater {
       call.composeArg
     )
   }
-  createDerivedVarName(call) {
-    function evaluateCallName(fnName, fnArg, compose) {
+
+  protected createDerivedVarName(call: ColorFnCall) {
+    function evaluateCallName(
+      fnName: ColorFn,
+      fnArg: string,
+      compose?: ColorFnCall
+    ): string {
       const partCompose = compose
         ? evaluateCallName(compose.fn, compose.fnArg, compose.composeArg)
         : ''
@@ -90,25 +101,32 @@ class ColorUpdater {
     return evaluateCallName(call.fn, call.fnArg, call.composeArg)
   }
 }
-exports.ColorUpdater = ColorUpdater
-class ColorGenerator extends ColorUpdater {
+
+export class ColorGenerator extends ColorUpdater {
   getAllVars() {
-    return [...this.getBaseVars(), ...[].concat(...this.getDerivedVars())]
+    return [
+      ...this.getBaseVars(),
+      ...([] as NameValueColor[]).concat(...this.getDerivedVars()),
+    ]
   }
-  createWritableSassFileOnlySassBaseVariables() {
+
+  createWritableSassFileOnlySassBaseVariables(): string {
     return `${this.getBaseVarNames()
       .map((name) => `$${name}: var(--${name})`)
       .join('\n')}
 `
   }
-  createWritableSassFile() {
+
+  createWritableSassFile(): string {
     const baseSassVariableStyles =
       this.createWritableSassFileOnlySassBaseVariables()
+
     const baseCssVariableStyles = `#{":root"}
 ${this.getBaseVars()
   .map(({ name, value }) => `  ${name}: ${value}`)
   .join('\n')}
 `
+
     const derivedCssVarStyles = `#{":root"}
 ${this.getDerivedVars()
   .map((vars) =>
@@ -116,6 +134,7 @@ ${this.getDerivedVars()
   )
   .join('\n\n')}
 `
+
     const fullFile = `
 // sass variables
 ${baseSassVariableStyles}
@@ -126,44 +145,7 @@ ${baseCssVariableStyles}
 // derived, generated css variables
 ${derivedCssVarStyles}
 `
-    return fullFile
-  }
-  createWritableDarkModeSassFile(generator) {
-    const isSameVar = (a, b) => a.value === b.value && a.name === b.name
-    const onlyInLeft = (left, right, compareFunction) =>
-      left.filter(
-        (leftValue) =>
-          !right.some((rightValue) => compareFunction(leftValue, rightValue))
-      )
 
-    const baseVars = onlyInLeft(
-      this.getBaseVars(),
-      generator.getBaseVars(),
-      isSameVar
-    )
-    const baseCssVariableStyles = `${baseVars
-      .map(({ name, value }) => `  ${name}: ${value}`)
-      .join('\n')}`
-
-    const derivedVars = onlyInLeft(
-      this.getDerivedVars(),
-      generator.getDerivedVars(),
-      isSameVar
-    )
-    const derivedCssVarStyles = `${derivedVars
-      .map((vars) =>
-        vars.map(({ name, value }) => `  ${name}: ${value}`).join('\n')
-      )
-      .join('\n')}`
-
-    const fullFile = `[data-theme="dark"]
-  // declared base css variables
-${baseCssVariableStyles}
-
-  // derived, generated css variables
-${derivedCssVarStyles}
-`
     return fullFile
   }
 }
-exports.ColorGenerator = ColorGenerator

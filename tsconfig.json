@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./dist/cjs",
+    "declarationDir": "./dist/types",
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "noImplicitAny": true,
+    "lib": ["es2019", "dom"],
+    "downlevelIteration": true
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist", "**/__mocks__/**/*", "./src/**/*.test.ts"]
+}

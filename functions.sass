@@ -179,9 +179,16 @@
 @function lightness($col)
   @if type-of($col) == 'color'
     @return color.lightness($col)
-  // this is called by message.sass with a possible variable (white)
-  // as the variable $white is usually bright, we return a high default value
-  @return 90%
+  @else
+    // this is called by message.sass with a possible variable (white)
+    // as the variable $white is usually bright, we return a high default value
+    // make it hard core values
+    $colorLightnessMap: ("--white": 100%, "--black": 4%, "--light": 96%, "--dark": 21%)
+    $return: 90%
+    @each $name, $perc in $colorLightnessMap
+      @if ($name == unwrap($col))
+        $return: $perc
+    @return $return
 
 @function transparentize($col, $perc)
   @if type-of($col) == 'color'

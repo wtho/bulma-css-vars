@@ -20,6 +20,10 @@
   "engines": {
     "node": ">= 10.0.0"
   },
+  "scripts": {
+    "postinstall": "node postinstall.js",
+    "uninstall": "node uninstall.js"
+  },
   "dependencies": {
     "color": "^4.2.1",
     "css": "^3.0.0",

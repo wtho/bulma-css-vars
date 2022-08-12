@@ -21,8 +21,8 @@
     "node": ">= 10.0.0"
   },
   "scripts": {
-    "postinstall": "node postinstall.js",
-    "uninstall": "node uninstall.js"
+    "postinstall": "postinstall.js",
+    "uninstall": "uninstall.js"
   },
   "dependencies": {
     "color": "^4.2.1",

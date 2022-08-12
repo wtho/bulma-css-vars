@@ -13,7 +13,7 @@ import {
 import { compileSass } from './compile-sass'
 
 const configFileName = 'bulma-css-vars.config.js'
-const mainSassFileName = 'src/main.scss'
+const mainSassFileName = 'src/scss/app.scss'
 
 const configFilePathAtCwd = (cwd: string) => path.join(cwd, configFileName)
 const mainSassFilePathAtCwd = (cwd: string) => path.join(cwd, mainSassFileName)
@@ -117,16 +117,15 @@ const defaultConfigContent = `const appColors = {
 }
 
 module.exports = {
-  sassOutputFile: 'src/bulma-generated/generated-bulma-vars.sass',
+  sassEntryFile: 'src/scss/app.scss',
+  sassOutputFile: 'src/scss/theme.sass',
   colorDefs: appColors,
-  sassEntryFile: 'src/main.scss',
 }
 
 `
 
-const defaultMainScssContent = `@import './bulma-generated/generated-fallback.css';
-@import './bulma-generated/generated-bulma-vars.sass';
-@import '../node_modules/bulma-css-vars/bulma-cv-lib';
+const defaultMainScssContent = `@import './scss/theme.sass';
+@import 'bulma-css-vars/bulma-cv-lib';
 
 `
 

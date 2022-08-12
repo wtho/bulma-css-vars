@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const function_file_path = "./node_modules/bulma/sass/utilities";
+const function_file_path = "../bulma/sass/utilities";
 const function_file_name = `${function_file_path}/functions.sass`;
 const backup_function_file_name = `${function_file_path}/functions-backup.sass`;
 

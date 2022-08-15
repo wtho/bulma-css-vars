@@ -135,10 +135,10 @@ ${this.getDerivedVars()
   .join('\n\n')}
 `
 
-    const fullFile = `
 // sass variables
-${baseSassVariableStyles}
+//${baseSassVariableStyles}
 
+    const fullFile = `
 // declared base css variables
 ${baseCssVariableStyles}
 

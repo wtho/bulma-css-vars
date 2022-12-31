@@ -1,4 +1,5 @@
 import * as path from 'path'
+import { existsSync } from 'fs'
 import { defaultOptions } from './default-options'
 import { BulmaCssVarsOptions, ColorCallSet } from './types'
 import { getUsedVariables } from './find-used-vars'
@@ -14,22 +15,41 @@ import { getCssFallbacks } from './css-post-processor'
 import { compileSass } from './compile-sass'
 
 const configFileName = 'bulma-css-vars.config.js'
+const cjsConfigFileName = 'bulma-css-vars.config.cjs'
 const mainSassFileName = 'src/main.scss'
 
 const configFilePathAtCwd = (cwd: string) => path.join(cwd, configFileName)
+const cjsConfigFilePathAtCwd = (cwd: string) => path.join(cwd, cjsConfigFileName)
 const mainSassFilePathAtCwd = (cwd: string) => path.join(cwd, mainSassFileName)
 
 async function validateOptions(cwd: string) {
   const configFilePath = configFilePathAtCwd(cwd)
+  const cjsConfigFilePath = cjsConfigFilePathAtCwd(cwd)
 
   let loadedOptions = {}
-  try {
-    loadedOptions = require(configFilePath)
-  } catch (err) {
+  
+  if (existsSync(cjsConfigFilePath)) {
+    try {
+      loadedOptions = await import(cjsConfigFilePath).then(m => m.default || m)
+    } catch (err) {
+      throw new Error(
+        `Unable to parse configuration file at '${cjsConfigFilePath}': ${err}`
+      )
+    }
+  } else if (existsSync(configFilePath)) {
+    try {
+      loadedOptions = await import(configFilePath).then(m => m.default || m)
+    } catch (err) {
+      throw new Error(
+        `Unable to parse cjs configuration file at '${configFilePath}': ${err}`
+      )
+    }
+  } else {
     throw new Error(
       `Required config file '${configFileName}' was not found at ${configFilePath}`
     )
   }
+
   const options: BulmaCssVarsOptions = {
     ...defaultOptions,
     ...loadedOptions,

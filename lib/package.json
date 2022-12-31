@@ -27,7 +27,7 @@
     "/*.sass"
   ],
   "bin": {
-    "bulma-css-vars": "bin/bulma-css-vars.js"
+    "bulma-css-vars": "bin/bulma-css-vars.cjs"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-esm.json && webpack",

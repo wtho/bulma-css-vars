@@ -29,7 +29,7 @@ import { hsl, rgb } from 'bulma-css-vars'
 const appColors = {
   black: hsl(0, 0, 4),
   'scheme-main': rgb(200, 105, 84),
-  red: { r: 255, b: 0, g: 0}
+  red: { r: 255, g: 0, b: 0 },
   primary: '#663423',
   blue: 'blue',
 }

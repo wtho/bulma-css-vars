@@ -9,7 +9,8 @@
     "target": "es2015",
     "noImplicitAny": true,
     "lib": ["es2019", "dom"],
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "skipLibCheck": true
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist", "**/__mocks__/**/*", "./src/**/*.test.ts"]

@@ -1,4 +1,4 @@
-import * as Color from 'color'
+import Color from 'color'
 import { Hsl, Rgb, Hex, ColorDef, NameValueColor } from './types'
 
 function lightness(color: Color) {
